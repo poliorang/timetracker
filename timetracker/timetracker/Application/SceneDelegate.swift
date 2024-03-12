@@ -17,7 +17,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let timerModule = TimerModuleAssembly()
         let analyticsModule = AnalyticsModuleAssembly()
         let goalsModule = GoalsModuleAssembly()
-        
 
         let tabBarViewController = NavigationViewController(
             timerModule: timerModule,
