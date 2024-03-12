@@ -14,10 +14,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        let tabBarViewController = NavigationViewController()
-        window = UIWindow(frame: UIScreen.main.bounds)
+        let timerModule = TimerModuleAssembly()
+        let analyticsModule = AnalyticsModuleAssembly()
+        let goalsModule = GoalsModuleAssembly()
+        
 
+        let tabBarViewController = NavigationViewController(
+            timerModule: timerModule,
+            analyticsModule: analyticsModule,
+            goalsModule: goalsModule
+        )
+        window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = tabBarViewController
+
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene
     }

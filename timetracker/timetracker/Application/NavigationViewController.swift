@@ -8,32 +8,57 @@
 import UIKit
 
 class NavigationViewController: UITabBarController {
-
+    private var timerModule: BaseAssembly
+    private var analyticsModule: BaseAssembly
+    private var goalsModule: BaseAssembly
+    
+    init(timerModule: BaseAssembly,
+         analyticsModule: BaseAssembly,
+         goalsModule: BaseAssembly) {
+        self.timerModule = timerModule
+        self.analyticsModule = analyticsModule
+        self.goalsModule = goalsModule
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
 
         setupViewControllers()
+        setTabBarAppearance()
     }
 
-    func setupViewControllers() {
-            viewControllers = [createNavigationsController(for: AnalyticsViewController(),
-                                                           title: NSLocalizedString("analytics", comment: ""),
-                                                           image: UIImage(systemName: "chart.xyaxis.line")!),
-                               createNavigationsController(for: TimerViewController(),
-                                                           title: NSLocalizedString("timer", comment: ""),
-                                                           image: UIImage(systemName: "hourglass.bottomhalf.filled")!),
-                               createNavigationsController(for: GoalsViewController(),
-                                                           title: NSLocalizedString("goals", comment: ""),
-                                                           image: UIImage(systemName: "pin.fill")!)]
-
+    private func setupViewControllers() {
+        viewControllers = [createNavigationsController(for: analyticsModule.module().view,
+                                                       title: NSLocalizedString("analytics", comment: ""),
+                                                       image: UIImage(systemName: "chart.xyaxis.line")!),
+                           createNavigationsController(for: timerModule.module().view,
+                                                       title: NSLocalizedString("timer", comment: ""),
+                                                       image: UIImage(systemName: "hourglass.bottomhalf.filled")!),
+                           createNavigationsController(for: goalsModule.module().view,
+                                                       title: NSLocalizedString("goals", comment: ""),
+                                                       image: UIImage(systemName: "pin.fill")!)]
+        self.selectedViewController = viewControllers?[1]
     }
 
-    func createNavigationsController(for rootViewController: UIViewController, title: String, image: UIImage) -> UIViewController {
+    private func createNavigationsController(for rootViewController: UIViewController, title: String, image: UIImage) -> UIViewController {
         let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.tabBarItem.title = title
         navigationController.tabBarItem.image = image
-        
+
         return navigationController
+    }
+
+    private func setTabBarAppearance() {
+        tabBar.layer.borderColor = UIColor.lightGray.cgColor
+        tabBar.layer.borderWidth = 0.5
+        tabBar.tintColor = .black
+        tabBar.unselectedItemTintColor = .lightGray
     }
 }
