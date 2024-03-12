@@ -189,6 +189,16 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		4A2F6F062BA107A600938F2E /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F6EE22BA0EF9400938F2E /* Goals */,
+				4A2F6EE12BA0EF8F00938F2E /* Timer */,
+				4A2F6EE02BA0EF8800938F2E /* Analytics */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 		4A3A7B952B94C76D004C60D2 = {
 			isa = PBXGroup;
 			children = (
@@ -208,11 +218,9 @@
 		4A3A7BA02B94C76D004C60D2 /* timetracker */ = {
 			isa = PBXGroup;
 			children = (
-				4A2F6F032BA1010B00938F2E /* Helpers */,
 				4A3A7BB52B94C774004C60D2 /* Application */,
-				4A2F6EE22BA0EF9400938F2E /* Goals */,
-				4A2F6EE12BA0EF8F00938F2E /* Timer */,
-				4A2F6EE02BA0EF8800938F2E /* Analytics */,
+				4A2F6F062BA107A600938F2E /* Modules */,
+				4A2F6F032BA1010B00938F2E /* Helpers */,
 				4A3A7BAA2B94C76F004C60D2 /* Assets.xcassets */,
 				4A3A7BAF2B94C76F004C60D2 /* Info.plist */,
 			);
