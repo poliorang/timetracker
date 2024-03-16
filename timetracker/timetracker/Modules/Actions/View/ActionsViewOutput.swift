@@ -8,6 +8,6 @@
 protocol ActionsViewOutput: AnyObject {
     func actionsCount() -> Int
     
-    func actions() -> [String]
+    func actionsWithProjects(index: Int) -> ActionProject?
 }
 

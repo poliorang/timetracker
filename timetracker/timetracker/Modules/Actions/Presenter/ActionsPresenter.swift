@@ -25,8 +25,8 @@ extension ActionsPresenter: ActionsViewOutput {
         return interactor.getActionsCount()
     }
 
-    func actions() -> [String] {
-        return interactor.getActions()
+    func actionsWithProjects(index: Int) -> ActionProject? {
+        return interactor.getAction(index: index)
     }
 }
 

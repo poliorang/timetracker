@@ -8,9 +8,9 @@
 import UIKit
 
 protocol ActionsTableViewDataSourceDelegate: AnyObject {
-    func getActions() -> [String]
+    func getActionWithProject(index: Int) -> ActionProject?
     
-    func setSelectedAction(action: String?)
+    func setSelectedAction(action: ActionProject?)
 }
 
 final class ActionsTableViewDataSourceImpl: NSObject {
@@ -56,9 +56,14 @@ extension ActionsTableViewDataSourceImpl: ActionsTableViewDataSource {
             return UITableViewCell()
         }
 
-        let actions = delegate?.getActions()
+        let action: ActionProject? = delegate?.getActionWithProject(index: indexPath.row)
+        guard let action = action else {
+            assertionFailure("Failed to get actions")
+            return UITableViewCell()
+        }
         cell.configure(
-            actionName: actions?[indexPath.row] ?? "",
+            action: action.0,
+            project: action.1,
             delegate: delegate
         )
         cell.setUpUI()
@@ -77,7 +82,7 @@ extension ActionsTableViewDataSourceImpl: ActionsTableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let actions = delegate?.getActions()
-        delegate?.setSelectedAction(action: actions?[indexPath.row])
+        let action = delegate?.getActionWithProject(index: indexPath.row)
+        delegate?.setSelectedAction(action: action)
     }
 }

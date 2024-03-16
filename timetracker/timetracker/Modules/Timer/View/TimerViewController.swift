@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TimerViewControllerDelegate: AnyObject {
-    func update(action: String?)
+    func update(action: ActionProject?)
 }
 
 class TimerViewController: UIViewController {
@@ -210,7 +210,10 @@ extension TimerViewController: TimerViewInput {
 }
 
 extension TimerViewController: TimerViewControllerDelegate {
-    func update(action: String?) {
-        self.actionTextField.text = action
+    func update(action: ActionProject?) {
+        guard let action = action else { return }
+        actionTextField.text = action.0
+        projectTextField.text = action.1
+        projectsTabControl.setSelectedLabel(text: action.1)
     }
 }

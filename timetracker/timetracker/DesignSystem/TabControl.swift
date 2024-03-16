@@ -9,13 +9,18 @@ import UIKit
 
 final class TabControl: UIScrollView {
 
+    // MARK: - Public properties
+    
     public var onTap: ((String) -> Void)?
+    
+    private var selectedLabel: UILabel?
     
     public var labels: [String] = [] {
         didSet {
             setupLabels()
         }
     }
+    
     // MARK: - Private properties
     
     private enum Constants {
@@ -26,7 +31,22 @@ final class TabControl: UIScrollView {
         static let labelSelectedTextColor: UIColor = .black
     }
     
-    private var selectedLabel: UILabel?
+    // MARK: - Public functions
+    
+    func setSelectedLabel(text: String) {
+        guard let labelToSelect = subviews.first(where: { ($0 as? UILabel)?.text == text }) as? UILabel else {
+            return
+        }
+        
+        if let prevSelectedLabel = selectedLabel {
+            prevSelectedLabel.backgroundColor = Constants.labelBackgroundColor
+            prevSelectedLabel.textColor = Constants.labelTextColor
+        }
+        
+        labelToSelect.backgroundColor = Constants.labelSelectedBackgroundColor
+        labelToSelect.textColor = Constants.labelSelectedTextColor
+        selectedLabel = labelToSelect
+    }
     
     // MARK: - Private functions
     
