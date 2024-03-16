@@ -11,15 +11,27 @@ final class TimerPresenter {
 
     // MARK: - Private properties
 
+    private let interactor: TimerInteractorInput
     private let assemblyFactory = AssemblyFactoryImpl.shared
 
     // MARK: - Init
 
-    init() { }
+    init(interactor: TimerInteractorInput) {
+        self.interactor = interactor
+    }
+    
 }
 
 extension TimerPresenter: TimerViewOutput {
     func didTapOpenActions() {
         view?.present(module: assemblyFactory.actionsModuleAssembly().module().view)
     }
+    
+    func projects() -> [String] {
+        return interactor.getProjects()
+    }
+}
+
+extension TimerPresenter: TimerInteractorOutput {
+    
 }

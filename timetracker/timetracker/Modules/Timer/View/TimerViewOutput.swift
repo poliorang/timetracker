@@ -7,4 +7,6 @@
 
 protocol TimerViewOutput: AnyObject {
     func didTapOpenActions()
+    
+    func projects() -> [String]
 }

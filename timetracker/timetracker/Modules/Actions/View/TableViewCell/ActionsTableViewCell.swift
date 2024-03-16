@@ -2,7 +2,7 @@
 //  ActionsTableViewCell.swift
 //  timetracker
 //
-//  Created by Поли Оранж on 14.03.2024.
+//  Created by Polina Egorova on 14.03.2024.
 //
 
 import UIKit
@@ -12,8 +12,9 @@ final class ActionsTableViewCell: UITableViewCell {
     // MARK: - Private properties
 
     private enum Constants {
-        static let bgOffsetLeftRight: CGFloat = 12
-        static let bgOffseTopBottom: CGFloat = 5
+        static let fontSize: CGFloat = 16.0
+        static let bgOffsetLeftRight: CGFloat = 12.0
+        static let bgOffseTopBottom: CGFloat = 5.0
     }
     
     private weak var delegate: ActionsTableViewDataSourceDelegate?
@@ -61,6 +62,7 @@ final class ActionsTableViewCell: UITableViewCell {
 
     private func configureView() {
         label.text = actionName
+        label.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
     }
 }
 

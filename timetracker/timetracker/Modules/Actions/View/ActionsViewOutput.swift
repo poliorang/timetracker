@@ -2,7 +2,7 @@
 //  ActionsViewOutput.swift
 //  timetracker
 //
-//  Created by Поли Оранж on 14.03.2024.
+//  Created by Polina Egorova on 14.03.2024.
 //
 
 protocol ActionsViewOutput: AnyObject {

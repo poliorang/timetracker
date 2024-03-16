@@ -36,6 +36,10 @@
 		4A2F6F2B2BA44B2600938F2E /* ActionsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F2A2BA44B2600938F2E /* ActionsInteractorOutput.swift */; };
 		4A2F6F2D2BA59EF700938F2E /* TimerModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F2C2BA59EF700938F2E /* TimerModuleInput.swift */; };
 		4A2F6F2F2BA59F7D00938F2E /* ActionsModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F2E2BA59F7D00938F2E /* ActionsModuleInput.swift */; };
+		4A2F6F312BA5D1E900938F2E /* TimerInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F302BA5D1E900938F2E /* TimerInteractorInput.swift */; };
+		4A2F6F332BA5D20600938F2E /* TimerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F322BA5D20600938F2E /* TimerInteractor.swift */; };
+		4A2F6F362BA5D24800938F2E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F352BA5D24800938F2E /* Service.swift */; };
+		4A2F6F382BA5D28B00938F2E /* TimerInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F372BA5D28B00938F2E /* TimerInteractorOutput.swift */; };
 		4A3A7BA22B94C76D004C60D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */; };
 		4A3A7BA42B94C76D004C60D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */; };
 		4A3A7BA62B94C76D004C60D2 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA52B94C76D004C60D2 /* TimerViewController.swift */; };
@@ -75,6 +79,10 @@
 		4A2F6F2A2BA44B2600938F2E /* ActionsInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsInteractorOutput.swift; sourceTree = "<group>"; };
 		4A2F6F2C2BA59EF700938F2E /* TimerModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModuleInput.swift; sourceTree = "<group>"; };
 		4A2F6F2E2BA59F7D00938F2E /* ActionsModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsModuleInput.swift; sourceTree = "<group>"; };
+		4A2F6F302BA5D1E900938F2E /* TimerInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerInteractorInput.swift; sourceTree = "<group>"; };
+		4A2F6F322BA5D20600938F2E /* TimerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerInteractor.swift; sourceTree = "<group>"; };
+		4A2F6F352BA5D24800938F2E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		4A2F6F372BA5D28B00938F2E /* TimerInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerInteractorOutput.swift; sourceTree = "<group>"; };
 		4A3A7B9E2B94C76D004C60D2 /* timetracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +202,9 @@
 		4A2F6EEA2BA0F16600938F2E /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				4A2F6F302BA5D1E900938F2E /* TimerInteractorInput.swift */,
+				4A2F6F322BA5D20600938F2E /* TimerInteractor.swift */,
+				4A2F6F372BA5D28B00938F2E /* TimerInteractorOutput.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -309,6 +320,14 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		4A2F6F342BA5D23500938F2E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F6F352BA5D24800938F2E /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		4A3A7B952B94C76D004C60D2 = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +347,7 @@
 		4A3A7BA02B94C76D004C60D2 /* timetracker */ = {
 			isa = PBXGroup;
 			children = (
+				4A2F6F342BA5D23500938F2E /* Service */,
 				4A3A7BB52B94C774004C60D2 /* Application */,
 				4A2F6F072BA1B7B400938F2E /* DesignSystem */,
 				4A2F6F062BA107A600938F2E /* Modules */,
@@ -423,6 +443,7 @@
 				4A2F6F232BA3624E00938F2E /* ActionsViewInput.swift in Sources */,
 				4A3A7BA62B94C76D004C60D2 /* TimerViewController.swift in Sources */,
 				4A2F6EFF2BA0F3D200938F2E /* AnalyticsPresenter.swift in Sources */,
+				4A2F6F312BA5D1E900938F2E /* TimerInteractorInput.swift in Sources */,
 				4A2F6EF72BA0F31C00938F2E /* GoalsPresenter.swift in Sources */,
 				4A3A7BA22B94C76D004C60D2 /* AppDelegate.swift in Sources */,
 				4A2F6F192BA35D7900938F2E /* ActionsPresenter.swift in Sources */,
@@ -430,7 +451,9 @@
 				4A2F6F202BA35EB300938F2E /* ActionsTableViewDataSourceImpl.swift in Sources */,
 				4A2F6EFD2BA0F3C100938F2E /* AnalyticsViewInput.swift in Sources */,
 				4A2F6F172BA35D3500938F2E /* ActionsModuleAssembly.swift in Sources */,
+				4A2F6F332BA5D20600938F2E /* TimerInteractor.swift in Sources */,
 				4A2F6EF22BA0F2EF00938F2E /* GoalsViewOutput.swift in Sources */,
+				4A2F6F382BA5D28B00938F2E /* TimerInteractorOutput.swift in Sources */,
 				4A3A7BA42B94C76D004C60D2 /* SceneDelegate.swift in Sources */,
 				4A2F6F022BA0F4AB00938F2E /* AnalyticsModuleAssembly.swift in Sources */,
 				4A2F6EF92BA0F33A00938F2E /* GoalsModuleAssembly.swift in Sources */,
@@ -445,6 +468,7 @@
 				4A2F6F1E2BA35E9100938F2E /* ActionsTableViewDataSource.swift in Sources */,
 				4A2F6EF42BA0F2F800938F2E /* GoalsViewInput.swift in Sources */,
 				4A2F6EEE2BA0F1C700938F2E /* TimerViewOutput.swift in Sources */,
+				4A2F6F362BA5D24800938F2E /* Service.swift in Sources */,
 				4A2F6F052BA1012300938F2E /* UIKit+AutoLayout.swift in Sources */,
 				4A2F6F252BA3630500938F2E /* AssemblyFactory.swift in Sources */,
 				4A3A7BBB2B94CABF004C60D2 /* AnalyticsViewController.swift in Sources */,

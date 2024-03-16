@@ -16,6 +16,7 @@ class TimerViewController: UIViewController {
     // MARK: - Private properties
 
     private enum Constants {
+        static let fontSize: CGFloat = 16.0
         static let mainImageSystemName: String = "play.fill"
         static let textFieldButtonImageSystemName: String = "control"
         static let actionTextFieldPlaceholder: String = "Action"
@@ -91,6 +92,13 @@ class TimerViewController: UIViewController {
             projectTextField.topAnchor.constraint(equalTo: actionTextField.bottomAnchor),
             projectTextField.heightAnchor.constraint(equalToConstant: 50)
         ])
+        view.addSubview(projectsTabControl)
+        NSLayoutConstraint.activate([
+            projectsTabControl.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            projectsTabControl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            projectsTabControl.topAnchor.constraint(equalTo: projectTextField.bottomAnchor, constant: 8),
+            projectsTabControl.heightAnchor.constraint(equalToConstant: 32)
+        ])
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         view.addGestureRecognizer(tap)
@@ -103,6 +111,7 @@ class TimerViewController: UIViewController {
         playImage.tintColor = .black
         
         actionTextField.placeholder = Constants.actionTextFieldPlaceholder
+        actionTextField.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
         actionTextField.delegate = self
         actionTextField.alpha = 0
         
@@ -117,8 +126,17 @@ class TimerViewController: UIViewController {
         actionsButton.alpha = 0
         actionsButton.addTarget(self, action: #selector(openActions), for: .touchUpInside)
         projectTextField.placeholder = Constants.projectTextFieldPlaceholder
+        projectTextField.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
         projectTextField.delegate = self
         projectTextField.alpha = 0
+        
+        projectsTabControl.alpha = 0
+        projectsTabControl.contentInset.left = 16
+        projectsTabControl.labels = output.projects()
+        projectsTabControl.onTap = { [weak self] tabText in
+            self?.projectTextField.text = tabText
+        }
+
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
@@ -126,6 +144,7 @@ class TimerViewController: UIViewController {
             self.actionTextField.alpha = 1
             self.actionsButton.alpha = 1
             self.projectTextField.alpha = 1
+            self.projectsTabControl.alpha = 1
         })
     }
     

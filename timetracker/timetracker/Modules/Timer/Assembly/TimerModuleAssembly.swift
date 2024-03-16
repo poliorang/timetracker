@@ -10,14 +10,14 @@ import UIKit
 final class TimerModuleAssembly: BaseAssembly {
 
     func module() -> (view: UIViewController, moduleInput: AnyObject) {
-//        let interactor = OmgModel()
+        let interactor = TimerInteractor()
         
-        let presenter = TimerPresenter()//(model: model)
+        let presenter = TimerPresenter(interactor: interactor)
 
         let controller = TimerViewController(output: presenter)
 
         presenter.view = controller
-//        model.output = presenter
+        interactor.output = presenter
 
         return (
             view: controller,

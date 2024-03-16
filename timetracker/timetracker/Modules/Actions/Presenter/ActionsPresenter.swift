@@ -2,7 +2,7 @@
 //  ActionsPresenter.swift
 //  timetracker
 //
-//  Created by Поли Оранж on 14.03.2024.
+//  Created by Polina Egorova on 14.03.2024.
 //
 
 final class ActionsPresenter {
@@ -11,7 +11,6 @@ final class ActionsPresenter {
 
     // MARK: - Private properties
 
-    private var actionSelectHandler: ((String?) -> Void)?
     private let interactor: ActionsInteractorInput
 
     // MARK: - Init
