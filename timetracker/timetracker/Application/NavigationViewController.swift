@@ -8,17 +8,10 @@
 import UIKit
 
 class NavigationViewController: UITabBarController {
-    private var timerModule: BaseAssembly
-    private var analyticsModule: BaseAssembly
-    private var goalsModule: BaseAssembly
     
-    init(timerModule: BaseAssembly,
-         analyticsModule: BaseAssembly,
-         goalsModule: BaseAssembly) {
-        self.timerModule = timerModule
-        self.analyticsModule = analyticsModule
-        self.goalsModule = goalsModule
-        
+    private let assemblyFactory = AssemblyFactoryImpl.shared
+
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,13 +28,13 @@ class NavigationViewController: UITabBarController {
     }
 
     private func setupViewControllers() {
-        viewControllers = [createNavigationsController(for: analyticsModule.module().view,
+        viewControllers = [createNavigationsController(for: assemblyFactory.analyticsModuleAssembly().module().view,
                                                        title: NSLocalizedString("analytics", comment: ""),
                                                        image: UIImage(systemName: "chart.xyaxis.line")!),
-                           createNavigationsController(for: timerModule.module().view,
+                           createNavigationsController(for: assemblyFactory.timerModuleAssembly().module().view,
                                                        title: NSLocalizedString("timer", comment: ""),
                                                        image: UIImage(systemName: "hourglass.bottomhalf.filled")!),
-                           createNavigationsController(for: goalsModule.module().view,
+                           createNavigationsController(for: assemblyFactory.goalsModuleAssembly().module().view,
                                                        title: NSLocalizedString("goals", comment: ""),
                                                        image: UIImage(systemName: "pin.fill")!)]
         self.selectedViewController = viewControllers?[1]

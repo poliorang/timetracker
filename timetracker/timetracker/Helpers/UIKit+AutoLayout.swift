@@ -2,7 +2,7 @@
 //  UIKit+AutoLayout.swift
 //  timetracker
 //
-//  Created by Поли Оранж on 13.03.2024.
+//  Created by Polina Egorova on 13.03.2024.
 //
 
 import UIKit

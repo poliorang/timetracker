@@ -2,7 +2,7 @@
 //  GoalsModuleAssembly.swift
 //  timetracker
 //
-//  Created by Поли Оранж on 12.03.2024.
+//  Created by Polina Egorova on 12.03.2024.
 //
 
 import UIKit

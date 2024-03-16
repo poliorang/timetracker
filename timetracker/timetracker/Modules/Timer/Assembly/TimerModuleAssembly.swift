@@ -13,17 +13,10 @@ final class TimerModuleAssembly: BaseAssembly {
 //        let interactor = OmgModel()
         
         let presenter = TimerPresenter()//(model: model)
-        
-//        let collectionViewDataSource = OmgCollectionViewDataSourceImpl()
-        
-//        let tableViewDataSource = OmgTableViewDataSourceImpl(collectionViewDataSource: collectionViewDataSource)
-        
-        let controller = TimerViewController(
-//            output: presenter,
-//            tableViewDataSource: tableViewDataSource
-        )
 
-//        presenter.view = controller
+        let controller = TimerViewController(output: presenter)
+
+        presenter.view = controller
 //        model.output = presenter
 
         return (

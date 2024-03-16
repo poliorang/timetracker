@@ -7,19 +7,42 @@
 
 import UIKit
 
+protocol TimerViewControllerDelegate: AnyObject {
+    func update(action: String?)
+}
+
 class TimerViewController: UIViewController {
 
     // MARK: - Private properties
 
     private enum Constants {
-        static let imageSystemName: String = "play.fill"
+        static let mainImageSystemName: String = "play.fill"
+        static let textFieldButtonImageSystemName: String = "control"
+        static let actionTextFieldPlaceholder: String = "Action"
+        static let projectTextFieldPlaceholder: String = "Project"
     }
+    
+    private let output: TimerViewOutput
+    
     private var playImage: UIImageView
+    private var actionTextField: BasicTextField
+    private var actionsButton: UIButton
+    private var projectTextField: BasicTextField
+    private var projectsTabControl: TabControl
+    
+    private var keyboardShifted = false
+    private var centerYAnchorConstraint: NSLayoutConstraint?
 
     // MARK: - Init
 
-    init() {
+    init(output: TimerViewOutput) {
+        self.output = output
         self.playImage = UIImageView().autolayout()
+        self.actionTextField = BasicTextField().autolayout()
+        self.actionsButton = UIButton().autolayout()
+        self.projectTextField = BasicTextField().autolayout()
+        self.projectsTabControl = TabControl().autolayout()
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -33,6 +56,7 @@ class TimerViewController: UIViewController {
         super.viewDidLoad()
         setUpUI()
         setUpAppearance()
+        addKeyboardObservers()
     }
 
     // MARK: - Private functions
@@ -41,9 +65,31 @@ class TimerViewController: UIViewController {
         view.addSubview(playImage)
         NSLayoutConstraint.activate([
             playImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            playImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             playImage.heightAnchor.constraint(equalToConstant: 40),
             playImage.widthAnchor.constraint(equalToConstant: 40)
+        ])
+        centerYAnchorConstraint = playImage.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        centerYAnchorConstraint?.isActive = true
+        view.addSubview(actionTextField)
+        NSLayoutConstraint.activate([
+            actionTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            actionTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            actionTextField.topAnchor.constraint(equalTo: playImage.bottomAnchor),
+            actionTextField.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        view.addSubview(actionsButton)
+        NSLayoutConstraint.activate([
+            actionsButton.centerYAnchor.constraint(equalTo: actionTextField.centerYAnchor),
+            actionsButton.trailingAnchor.constraint(equalTo: actionTextField.trailingAnchor),
+            actionsButton.widthAnchor.constraint(equalToConstant: 50),
+            actionsButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        view.addSubview(projectTextField)
+        NSLayoutConstraint.activate([
+            projectTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            projectTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            projectTextField.topAnchor.constraint(equalTo: actionTextField.bottomAnchor),
+            projectTextField.heightAnchor.constraint(equalToConstant: 50)
         ])
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
@@ -52,12 +98,100 @@ class TimerViewController: UIViewController {
 
     private func setUpAppearance() {
         view.backgroundColor = .white
-        playImage.image = UIImage(systemName: Constants.imageSystemName)!
+        playImage.image = UIImage(systemName: Constants.mainImageSystemName)!
         playImage.contentMode = .scaleAspectFit
         playImage.tintColor = .black
+        
+        actionTextField.placeholder = Constants.actionTextFieldPlaceholder
+        actionTextField.delegate = self
+        actionTextField.alpha = 0
+        
+        actionsButton.tintColor = .gray
+        let image = UIImage(systemName: Constants.textFieldButtonImageSystemName)!
+        let flippedImage = UIImage(
+            cgImage: image.cgImage!,
+            scale: image.scale,
+            orientation: .downMirrored
+        )
+        actionsButton.setImage(flippedImage, for: .normal)
+        actionsButton.alpha = 0
+        actionsButton.addTarget(self, action: #selector(openActions), for: .touchUpInside)
+        projectTextField.placeholder = Constants.projectTextFieldPlaceholder
+        projectTextField.delegate = self
+        projectTextField.alpha = 0
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        view.backgroundColor = view.backgroundColor == .red ? .blue: .red
+        UIView.animate(withDuration: 0.3, animations: {
+            self.actionTextField.alpha = 1
+            self.actionsButton.alpha = 1
+            self.projectTextField.alpha = 1
+        })
+    }
+    
+    private func addKeyboardObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(moveContentWithKeyboard),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(moveContentWithoutKeyboard),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
+    }
+
+    @objc private func moveContentWithKeyboard(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+        if keyboardFrame?.size.height != nil{
+            let animationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+            UIView.animate(withDuration: animationDuration, animations: {
+                if !self.keyboardShifted {
+                    self.centerYAnchorConstraint?.constant -= 70
+                    self.keyboardShifted = true
+                }
+            })
+        }
+    }
+
+    @objc private func moveContentWithoutKeyboard(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+        if keyboardFrame?.size.height != nil {
+            let animationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+            UIView.animate(withDuration: animationDuration, animations: {
+                if self.keyboardShifted {
+                    self.centerYAnchorConstraint?.constant += 70
+                    self.keyboardShifted = false
+                }
+            })
+        }
+    }
+    
+    @objc private func openActions() {
+        output.didTapOpenActions()
+    }
+}
+
+extension TimerViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+extension TimerViewController: TimerViewInput {
+    func present(module: UIViewController) {
+        guard let childViewController = module as? ActionViewController else { return }
+        childViewController.delegate = self
+        present(childViewController, animated: true)
+    }
+}
+
+extension TimerViewController: TimerViewControllerDelegate {
+    func update(action: String?) {
+        self.actionTextField.text = action
     }
 }

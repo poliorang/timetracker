@@ -20,6 +20,22 @@
 		4A2F6EFF2BA0F3D200938F2E /* AnalyticsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6EFE2BA0F3D200938F2E /* AnalyticsPresenter.swift */; };
 		4A2F6F022BA0F4AB00938F2E /* AnalyticsModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F012BA0F4AB00938F2E /* AnalyticsModuleAssembly.swift */; };
 		4A2F6F052BA1012300938F2E /* UIKit+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F042BA1012300938F2E /* UIKit+AutoLayout.swift */; };
+		4A2F6F092BA1B90D00938F2E /* BasicTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F082BA1B90D00938F2E /* BasicTextField.swift */; };
+		4A2F6F0B2BA1BC9000938F2E /* TabControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F0A2BA1BC9000938F2E /* TabControl.swift */; };
+		4A2F6F0D2BA31B3000938F2E /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F0C2BA31B3000938F2E /* ActionViewController.swift */; };
+		4A2F6F0F2BA3532800938F2E /* ActionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F0E2BA3532800938F2E /* ActionsTableViewCell.swift */; };
+		4A2F6F172BA35D3500938F2E /* ActionsModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F162BA35D3500938F2E /* ActionsModuleAssembly.swift */; };
+		4A2F6F192BA35D7900938F2E /* ActionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F182BA35D7900938F2E /* ActionsPresenter.swift */; };
+		4A2F6F1B2BA35D9100938F2E /* ActionsViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F1A2BA35D9100938F2E /* ActionsViewOutput.swift */; };
+		4A2F6F1E2BA35E9100938F2E /* ActionsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F1D2BA35E9100938F2E /* ActionsTableViewDataSource.swift */; };
+		4A2F6F202BA35EB300938F2E /* ActionsTableViewDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F1F2BA35EB300938F2E /* ActionsTableViewDataSourceImpl.swift */; };
+		4A2F6F232BA3624E00938F2E /* ActionsViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F222BA3624E00938F2E /* ActionsViewInput.swift */; };
+		4A2F6F252BA3630500938F2E /* AssemblyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F242BA3630500938F2E /* AssemblyFactory.swift */; };
+		4A2F6F272BA4482200938F2E /* ActionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F262BA4482200938F2E /* ActionsInteractor.swift */; };
+		4A2F6F292BA4482700938F2E /* ActionsInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F282BA4482700938F2E /* ActionsInteractorInput.swift */; };
+		4A2F6F2B2BA44B2600938F2E /* ActionsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F2A2BA44B2600938F2E /* ActionsInteractorOutput.swift */; };
+		4A2F6F2D2BA59EF700938F2E /* TimerModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F2C2BA59EF700938F2E /* TimerModuleInput.swift */; };
+		4A2F6F2F2BA59F7D00938F2E /* ActionsModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F2E2BA59F7D00938F2E /* ActionsModuleInput.swift */; };
 		4A3A7BA22B94C76D004C60D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */; };
 		4A3A7BA42B94C76D004C60D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */; };
 		4A3A7BA62B94C76D004C60D2 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA52B94C76D004C60D2 /* TimerViewController.swift */; };
@@ -43,6 +59,22 @@
 		4A2F6EFE2BA0F3D200938F2E /* AnalyticsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPresenter.swift; sourceTree = "<group>"; };
 		4A2F6F012BA0F4AB00938F2E /* AnalyticsModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsModuleAssembly.swift; sourceTree = "<group>"; };
 		4A2F6F042BA1012300938F2E /* UIKit+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+AutoLayout.swift"; sourceTree = "<group>"; };
+		4A2F6F082BA1B90D00938F2E /* BasicTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextField.swift; sourceTree = "<group>"; };
+		4A2F6F0A2BA1BC9000938F2E /* TabControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabControl.swift; sourceTree = "<group>"; };
+		4A2F6F0C2BA31B3000938F2E /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		4A2F6F0E2BA3532800938F2E /* ActionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsTableViewCell.swift; sourceTree = "<group>"; };
+		4A2F6F162BA35D3500938F2E /* ActionsModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsModuleAssembly.swift; sourceTree = "<group>"; };
+		4A2F6F182BA35D7900938F2E /* ActionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsPresenter.swift; sourceTree = "<group>"; };
+		4A2F6F1A2BA35D9100938F2E /* ActionsViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewOutput.swift; sourceTree = "<group>"; };
+		4A2F6F1D2BA35E9100938F2E /* ActionsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsTableViewDataSource.swift; sourceTree = "<group>"; };
+		4A2F6F1F2BA35EB300938F2E /* ActionsTableViewDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsTableViewDataSourceImpl.swift; sourceTree = "<group>"; };
+		4A2F6F222BA3624E00938F2E /* ActionsViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewInput.swift; sourceTree = "<group>"; };
+		4A2F6F242BA3630500938F2E /* AssemblyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyFactory.swift; sourceTree = "<group>"; };
+		4A2F6F262BA4482200938F2E /* ActionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsInteractor.swift; sourceTree = "<group>"; };
+		4A2F6F282BA4482700938F2E /* ActionsInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsInteractorInput.swift; sourceTree = "<group>"; };
+		4A2F6F2A2BA44B2600938F2E /* ActionsInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsInteractorOutput.swift; sourceTree = "<group>"; };
+		4A2F6F2C2BA59EF700938F2E /* TimerModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModuleInput.swift; sourceTree = "<group>"; };
+		4A2F6F2E2BA59F7D00938F2E /* ActionsModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsModuleInput.swift; sourceTree = "<group>"; };
 		4A3A7B9E2B94C76D004C60D2 /* timetracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				4A2F6EEB2BA0F17500938F2E /* TimerPresenter.swift */,
+				4A2F6F2C2BA59EF700938F2E /* TimerModuleInput.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -192,11 +225,88 @@
 		4A2F6F062BA107A600938F2E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4A2F6F102BA35C8E00938F2E /* Actions */,
 				4A2F6EE22BA0EF9400938F2E /* Goals */,
 				4A2F6EE12BA0EF8F00938F2E /* Timer */,
 				4A2F6EE02BA0EF8800938F2E /* Analytics */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		4A2F6F072BA1B7B400938F2E /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F6F082BA1B90D00938F2E /* BasicTextField.swift */,
+				4A2F6F0A2BA1BC9000938F2E /* TabControl.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		4A2F6F102BA35C8E00938F2E /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F6F152BA35D2400938F2E /* Assembly */,
+				4A2F6F142BA35D1B00938F2E /* Interactor */,
+				4A2F6F132BA35D1500938F2E /* Presenter */,
+				4A2F6F112BA35C9F00938F2E /* View */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		4A2F6F112BA35C9F00938F2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F6F212BA3605700938F2E /* TableViewCell */,
+				4A2F6F1C2BA35E7600938F2E /* TableViewDataSource */,
+				4A2F6F0C2BA31B3000938F2E /* ActionViewController.swift */,
+				4A2F6F1A2BA35D9100938F2E /* ActionsViewOutput.swift */,
+				4A2F6F222BA3624E00938F2E /* ActionsViewInput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4A2F6F132BA35D1500938F2E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F6F182BA35D7900938F2E /* ActionsPresenter.swift */,
+				4A2F6F2E2BA59F7D00938F2E /* ActionsModuleInput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		4A2F6F142BA35D1B00938F2E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F6F262BA4482200938F2E /* ActionsInteractor.swift */,
+				4A2F6F282BA4482700938F2E /* ActionsInteractorInput.swift */,
+				4A2F6F2A2BA44B2600938F2E /* ActionsInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		4A2F6F152BA35D2400938F2E /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F6F162BA35D3500938F2E /* ActionsModuleAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		4A2F6F1C2BA35E7600938F2E /* TableViewDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F6F1D2BA35E9100938F2E /* ActionsTableViewDataSource.swift */,
+				4A2F6F1F2BA35EB300938F2E /* ActionsTableViewDataSourceImpl.swift */,
+			);
+			path = TableViewDataSource;
+			sourceTree = "<group>";
+		};
+		4A2F6F212BA3605700938F2E /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F6F0E2BA3532800938F2E /* ActionsTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		4A3A7B952B94C76D004C60D2 = {
@@ -219,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3A7BB52B94C774004C60D2 /* Application */,
+				4A2F6F072BA1B7B400938F2E /* DesignSystem */,
 				4A2F6F062BA107A600938F2E /* Modules */,
 				4A2F6F032BA1010B00938F2E /* Helpers */,
 				4A3A7BAA2B94C76F004C60D2 /* Assets.xcassets */,
@@ -233,6 +344,7 @@
 				4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */,
 				4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */,
 				4A3A7BB62B94C819004C60D2 /* NavigationViewController.swift */,
+				4A2F6F242BA3630500938F2E /* AssemblyFactory.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -308,22 +420,38 @@
 			files = (
 				4A2F6EEC2BA0F17500938F2E /* TimerPresenter.swift in Sources */,
 				4A3A7BB72B94C819004C60D2 /* NavigationViewController.swift in Sources */,
+				4A2F6F232BA3624E00938F2E /* ActionsViewInput.swift in Sources */,
 				4A3A7BA62B94C76D004C60D2 /* TimerViewController.swift in Sources */,
 				4A2F6EFF2BA0F3D200938F2E /* AnalyticsPresenter.swift in Sources */,
 				4A2F6EF72BA0F31C00938F2E /* GoalsPresenter.swift in Sources */,
 				4A3A7BA22B94C76D004C60D2 /* AppDelegate.swift in Sources */,
+				4A2F6F192BA35D7900938F2E /* ActionsPresenter.swift in Sources */,
 				4A2F6EDF2BA0EDE100938F2E /* TimerModuleAssembly.swift in Sources */,
+				4A2F6F202BA35EB300938F2E /* ActionsTableViewDataSourceImpl.swift in Sources */,
 				4A2F6EFD2BA0F3C100938F2E /* AnalyticsViewInput.swift in Sources */,
+				4A2F6F172BA35D3500938F2E /* ActionsModuleAssembly.swift in Sources */,
 				4A2F6EF22BA0F2EF00938F2E /* GoalsViewOutput.swift in Sources */,
 				4A3A7BA42B94C76D004C60D2 /* SceneDelegate.swift in Sources */,
 				4A2F6F022BA0F4AB00938F2E /* AnalyticsModuleAssembly.swift in Sources */,
 				4A2F6EF92BA0F33A00938F2E /* GoalsModuleAssembly.swift in Sources */,
 				4A2F6EFB2BA0F3AF00938F2E /* AnalyticsViewOutput.swift in Sources */,
+				4A2F6F1B2BA35D9100938F2E /* ActionsViewOutput.swift in Sources */,
 				4A3A7BB92B94CAB0004C60D2 /* GoalsViewController.swift in Sources */,
+				4A2F6F2F2BA59F7D00938F2E /* ActionsModuleInput.swift in Sources */,
+				4A2F6F292BA4482700938F2E /* ActionsInteractorInput.swift in Sources */,
+				4A2F6F0D2BA31B3000938F2E /* ActionViewController.swift in Sources */,
+				4A2F6F092BA1B90D00938F2E /* BasicTextField.swift in Sources */,
+				4A2F6F0B2BA1BC9000938F2E /* TabControl.swift in Sources */,
+				4A2F6F1E2BA35E9100938F2E /* ActionsTableViewDataSource.swift in Sources */,
 				4A2F6EF42BA0F2F800938F2E /* GoalsViewInput.swift in Sources */,
 				4A2F6EEE2BA0F1C700938F2E /* TimerViewOutput.swift in Sources */,
 				4A2F6F052BA1012300938F2E /* UIKit+AutoLayout.swift in Sources */,
+				4A2F6F252BA3630500938F2E /* AssemblyFactory.swift in Sources */,
 				4A3A7BBB2B94CABF004C60D2 /* AnalyticsViewController.swift in Sources */,
+				4A2F6F272BA4482200938F2E /* ActionsInteractor.swift in Sources */,
+				4A2F6F2B2BA44B2600938F2E /* ActionsInteractorOutput.swift in Sources */,
+				4A2F6F0F2BA3532800938F2E /* ActionsTableViewCell.swift in Sources */,
+				4A2F6F2D2BA59EF700938F2E /* TimerModuleInput.swift in Sources */,
 				4A2F6EF02BA0F20000938F2E /* TimerViewInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
