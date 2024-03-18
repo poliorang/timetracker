@@ -34,7 +34,7 @@ class HighlightedLabel: UILabel {
     override func layoutSubviews() {
         super.layoutSubviews()
         let newSize = intrinsicContentSize
-        frame.size = CGSize(width: newSize.width + 20, height: 32)
+        frame.size = CGSize(width: newSize.width + 25, height: 32)
         layer.cornerRadius = frame.height / 2
         font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
     }

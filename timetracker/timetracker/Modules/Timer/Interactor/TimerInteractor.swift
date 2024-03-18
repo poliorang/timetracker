@@ -6,17 +6,20 @@
 //
 
 final class TimerInteractor {
-    var data: [Project : [Action]] = [
-        "work" : ["solve problems on the leetcode", "create UI"],
-        "life" : ["food"],
-        "fitness" : ["run for 15 min / day"],
-        "read" : ["Stephen Hawking, A Brief History Of Time"]
-    ]
+
     weak var output: TimerInteractorOutput?
+    
+    private let service = ServiceImpl.shared
 }
 
 extension TimerInteractor: TimerInteractorInput {
     func getProjects() -> [String] {
-        return Array(data.keys)
+        return Array(service.data.keys)
+    }
+
+    func сreateAction(action: Action, project: Project) {
+        service.data[project, default: []].insert(action)
+        print("action was created")
+        output?.updateProject()
     }
 }

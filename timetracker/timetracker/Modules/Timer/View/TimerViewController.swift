@@ -15,35 +15,50 @@ class TimerViewController: UIViewController {
 
     // MARK: - Private properties
 
+    private enum ScreenState {
+        case empty
+        case info
+        case time
+    }
+    
     private enum Constants {
         static let fontSize: CGFloat = 16.0
-        static let mainImageSystemName: String = "play.fill"
+        static let startImage = UIImage(systemName: "play.fill")
+        static let stopImage = UIImage(systemName: "stop.fill")
         static let textFieldButtonImageSystemName: String = "control"
         static let actionTextFieldPlaceholder: String = "Action"
         static let projectTextFieldPlaceholder: String = "Project"
     }
-    
+
     private let output: TimerViewOutput
-    
-    private var playImage: UIImageView
+
+    private var playButton: UIButton
     private var actionTextField: BasicTextField
     private var actionsButton: UIButton
     private var projectTextField: BasicTextField
     private var projectsTabControl: TabControl
     
+    private var selectedProjectLabel: UILabel
+    private var selectedActionLabel: UILabel
+    private var timerLabel: UILabel
+
+    private var screenState: ScreenState = .empty
     private var keyboardShifted = false
     private var centerYAnchorConstraint: NSLayoutConstraint?
-
+    
     // MARK: - Init
 
     init(output: TimerViewOutput) {
         self.output = output
-        self.playImage = UIImageView().autolayout()
+        self.playButton = UIButton().autolayout()
         self.actionTextField = BasicTextField().autolayout()
         self.actionsButton = UIButton().autolayout()
         self.projectTextField = BasicTextField().autolayout()
         self.projectsTabControl = TabControl().autolayout()
-
+        self.selectedProjectLabel = UILabel().autolayout()
+        self.selectedActionLabel = UILabel().autolayout()
+        self.timerLabel = UILabel().autolayout()
+        
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -63,19 +78,19 @@ class TimerViewController: UIViewController {
     // MARK: - Private functions
 
     private func setUpUI() {
-        view.addSubview(playImage)
+        view.addSubview(playButton)
         NSLayoutConstraint.activate([
-            playImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            playImage.heightAnchor.constraint(equalToConstant: 40),
-            playImage.widthAnchor.constraint(equalToConstant: 40)
+            playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            playButton.heightAnchor.constraint(equalToConstant: 40),
+            playButton.widthAnchor.constraint(equalToConstant: 40)
         ])
-        centerYAnchorConstraint = playImage.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        centerYAnchorConstraint = playButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         centerYAnchorConstraint?.isActive = true
         view.addSubview(actionTextField)
         NSLayoutConstraint.activate([
             actionTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             actionTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            actionTextField.topAnchor.constraint(equalTo: playImage.bottomAnchor),
+            actionTextField.topAnchor.constraint(equalTo: playButton.bottomAnchor),
             actionTextField.heightAnchor.constraint(equalToConstant: 50)
         ])
         view.addSubview(actionsButton)
@@ -100,31 +115,55 @@ class TimerViewController: UIViewController {
             projectsTabControl.heightAnchor.constraint(equalToConstant: 32)
         ])
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-        view.addGestureRecognizer(tap)
+        view.addSubview(selectedProjectLabel)
+        NSLayoutConstraint.activate([
+            selectedProjectLabel.rightAnchor.constraint(equalTo: view.centerXAnchor, constant: -16),
+            selectedProjectLabel.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 16),
+            selectedProjectLabel.heightAnchor.constraint(equalToConstant: 32)
+        ])
+        selectedActionLabel.isHidden = true
+        view.addSubview(selectedActionLabel)
+        NSLayoutConstraint.activate([
+            selectedActionLabel.leftAnchor.constraint(equalTo: view.centerXAnchor, constant: 16),
+            selectedActionLabel.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 16),
+            selectedActionLabel.heightAnchor.constraint(equalToConstant: 32)
+        ])
+        selectedProjectLabel.isHidden = true
+        view.addSubview(timerLabel)
+        NSLayoutConstraint.activate([
+            timerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            timerLabel.topAnchor.constraint(equalTo: selectedProjectLabel.bottomAnchor, constant: 8),
+            timerLabel.heightAnchor.constraint(equalToConstant: 32)
+        ])
+        timerLabel.isHidden = true
     }
 
     private func setUpAppearance() {
         view.backgroundColor = .white
-        playImage.image = UIImage(systemName: Constants.mainImageSystemName)!
-        playImage.contentMode = .scaleAspectFit
-        playImage.tintColor = .black
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.onScreenTap(_:)))
+        view.addGestureRecognizer(tap)
+        
+        playButton.setBackgroundImage(Constants.startImage, for: .normal)
+        playButton.tintColor = .black
+        playButton.imageView?.contentMode = .scaleAspectFit
+        playButton.addTarget(self, action: #selector(playButtonTap), for: .touchUpInside)
         
         actionTextField.placeholder = Constants.actionTextFieldPlaceholder
         actionTextField.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
         actionTextField.delegate = self
         actionTextField.alpha = 0
-        
+
         actionsButton.tintColor = .gray
-        let image = UIImage(systemName: Constants.textFieldButtonImageSystemName)!
+        let imageActionButton = UIImage(systemName: Constants.textFieldButtonImageSystemName)!
         let flippedImage = UIImage(
-            cgImage: image.cgImage!,
-            scale: image.scale,
+            cgImage: imageActionButton.cgImage!,
+            scale: imageActionButton.scale,
             orientation: .downMirrored
         )
         actionsButton.setImage(flippedImage, for: .normal)
         actionsButton.alpha = 0
         actionsButton.addTarget(self, action: #selector(openActions), for: .touchUpInside)
+        
         projectTextField.placeholder = Constants.projectTextFieldPlaceholder
         projectTextField.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
         projectTextField.delegate = self
@@ -136,18 +175,77 @@ class TimerViewController: UIViewController {
         projectsTabControl.onTap = { [weak self] tabText in
             self?.projectTextField.text = tabText
         }
+        
+        selectedActionLabel.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
+        timerLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        timerLabel.textColor = .systemGray3
+        timerLabel.text = ""
+    }
+    
+    @objc private func playButtonTap() {
+        switch screenState {
+        case .empty:
+            onScreenTap()
+        case .info:
+            startTimer()
+        case .time:
+            stopTimer()
+        }
+    }
 
+    private func startTimer() {
+        guard let actionName = actionTextField.text?.trimmedAndNormalized,
+              let projectName = projectTextField.text?.trimmedAndNormalized else {
+            return
+        }
+        screenState = .time
+        playButton.setBackgroundImage(Constants.stopImage, for: .normal)
+        
+        selectedProjectLabel.text = projectName
+        selectedActionLabel.text = actionName
+        
+        selectedProjectLabel.isHidden = false
+        selectedActionLabel.isHidden = false
+        timerLabel.isHidden = false
+        actionTextField.isHidden = true
+        projectTextField.isHidden = true
+        projectsTabControl.isHidden = true
+        actionsButton.isHidden = true
+        
+        output.didStartTime()
     }
     
-    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.actionTextField.alpha = 1
-            self.actionsButton.alpha = 1
-            self.projectTextField.alpha = 1
-            self.projectsTabControl.alpha = 1
-        })
+    private func stopTimer() {
+        guard let actionName = actionTextField.text?.trimmedAndNormalized,
+              let projectName = projectTextField.text?.trimmedAndNormalized else {
+            return
+        }
+        screenState = .empty
+        playButton.setBackgroundImage(Constants.startImage, for: .normal)
+        
+        projectTextField.text = ""
+        actionTextField.text = ""
+        selectedProjectLabel.text = ""
+        selectedActionLabel.text = ""
+        
+        selectedProjectLabel.isHidden = true
+        selectedActionLabel.isHidden = true
+        timerLabel.isHidden = true
+        actionTextField.isHidden = false
+        projectTextField.isHidden = false
+        projectsTabControl.isHidden = false
+        actionsButton.isHidden = false
+        
+        actionTextField.alpha = 0
+        projectTextField.alpha = 0
+        projectsTabControl.alpha = 0
+        actionsButton.alpha = 0
+        
+        timerLabel.text = ""
+        output.didStopTime()
+        output.сreateAction(action: actionName, project: projectName)
     }
-    
+
     private func addKeyboardObservers() {
         NotificationCenter.default.addObserver(
             self,
@@ -192,6 +290,16 @@ class TimerViewController: UIViewController {
     @objc private func openActions() {
         output.didTapOpenActions()
     }
+
+    @objc private func onScreenTap(_ sender: UITapGestureRecognizer? = nil) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.actionTextField.alpha = 1
+            self.actionsButton.alpha = 1
+            self.projectTextField.alpha = 1
+            self.projectsTabControl.alpha = 1
+        })
+        screenState = .info
+    }
 }
 
 extension TimerViewController: UITextFieldDelegate {
@@ -202,10 +310,19 @@ extension TimerViewController: UITextFieldDelegate {
 }
 
 extension TimerViewController: TimerViewInput {
+    
+    func updateTime(time: String) {
+        timerLabel.text = time
+    }
+    
     func present(module: UIViewController) {
         guard let childViewController = module as? ActionViewController else { return }
         childViewController.delegate = self
         present(childViewController, animated: true)
+    }
+    
+    func updateProject(projects: [Project]) {
+        projectsTabControl.labels = projects
     }
 }
 

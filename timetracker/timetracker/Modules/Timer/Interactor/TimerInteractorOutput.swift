@@ -6,5 +6,5 @@
 //
 
 protocol TimerInteractorOutput: AnyObject {
-
+    func updateProject()
 }

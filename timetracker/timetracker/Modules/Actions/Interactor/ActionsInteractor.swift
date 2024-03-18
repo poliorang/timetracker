@@ -6,19 +6,14 @@
 //
 
 final class ActionsInteractor {
-    var data: [Project : [Action]] = [
-        "work" : ["solve problems on the leetcode", "create UI"],
-        "life" : ["food"],
-        "fitness" : ["run for 15 min / day"],
-        "read" : ["Stephen Hawking, A Brief History Of Time"]
-    ]
+    private let service = ServiceImpl.shared
     weak var output: ActionsInteractorOutput?
 }
 
 extension ActionsInteractor: ActionsInteractorInput {
     func getActionsCount() -> Int {
         var actionsCount = 0
-        for (_, val) in data {
+        for (_, val) in service.data {
             actionsCount += val.count
         }
         
@@ -27,14 +22,14 @@ extension ActionsInteractor: ActionsInteractorInput {
     
     func getAction(index: Int) -> ActionProject? {
         var sum = -1
-        for (key, val) in data {
+        for (key, val) in service.data {
             sum += val.count
             if sum < index { continue }
             sum -= val.count
-            for i in 0..<val.count {
+            for value in val {
                 sum += 1
                 if sum == index {
-                    return (val[i], key)
+                    return (value, key)
                 }
             }
         }

@@ -42,6 +42,8 @@
 		4A2F6F382BA5D28B00938F2E /* TimerInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F372BA5D28B00938F2E /* TimerInteractorOutput.swift */; };
 		4A2F6F3A2BA5D9C300938F2E /* String+Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F392BA5D9C300938F2E /* String+Types.swift */; };
 		4A2F6F3C2BA5E8F300938F2E /* HighlightedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F3B2BA5E8F300938F2E /* HighlightedLabel.swift */; };
+		4A2F6F3F2BA715FA00938F2E /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F3E2BA715FA00938F2E /* Action.swift */; };
+		4A2F6F412BA73DCD00938F2E /* String+Normilized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F402BA73DCD00938F2E /* String+Normilized.swift */; };
 		4A3A7BA22B94C76D004C60D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */; };
 		4A3A7BA42B94C76D004C60D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */; };
 		4A3A7BA62B94C76D004C60D2 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA52B94C76D004C60D2 /* TimerViewController.swift */; };
@@ -87,6 +89,8 @@
 		4A2F6F372BA5D28B00938F2E /* TimerInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerInteractorOutput.swift; sourceTree = "<group>"; };
 		4A2F6F392BA5D9C300938F2E /* String+Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Types.swift"; sourceTree = "<group>"; };
 		4A2F6F3B2BA5E8F300938F2E /* HighlightedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedLabel.swift; sourceTree = "<group>"; };
+		4A2F6F3E2BA715FA00938F2E /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		4A2F6F402BA73DCD00938F2E /* String+Normilized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Normilized.swift"; sourceTree = "<group>"; };
 		4A3A7B9E2B94C76D004C60D2 /* timetracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 			children = (
 				4A2F6F042BA1012300938F2E /* UIKit+AutoLayout.swift */,
 				4A2F6F392BA5D9C300938F2E /* String+Types.swift */,
+				4A2F6F402BA73DCD00938F2E /* String+Normilized.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -329,9 +334,18 @@
 		4A2F6F342BA5D23500938F2E /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				4A2F6F3D2BA715E700938F2E /* Models */,
 				4A2F6F352BA5D24800938F2E /* Service.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		4A2F6F3D2BA715E700938F2E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F6F3E2BA715FA00938F2E /* Action.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		4A3A7B952B94C76D004C60D2 = {
@@ -469,6 +483,7 @@
 				4A2F6F1B2BA35D9100938F2E /* ActionsViewOutput.swift in Sources */,
 				4A3A7BB92B94CAB0004C60D2 /* GoalsViewController.swift in Sources */,
 				4A2F6F2F2BA59F7D00938F2E /* ActionsModuleInput.swift in Sources */,
+				4A2F6F3F2BA715FA00938F2E /* Action.swift in Sources */,
 				4A2F6F292BA4482700938F2E /* ActionsInteractorInput.swift in Sources */,
 				4A2F6F0D2BA31B3000938F2E /* ActionViewController.swift in Sources */,
 				4A2F6F092BA1B90D00938F2E /* BasicTextField.swift in Sources */,
@@ -479,6 +494,7 @@
 				4A2F6F362BA5D24800938F2E /* Service.swift in Sources */,
 				4A2F6F052BA1012300938F2E /* UIKit+AutoLayout.swift in Sources */,
 				4A2F6F252BA3630500938F2E /* AssemblyFactory.swift in Sources */,
+				4A2F6F412BA73DCD00938F2E /* String+Normilized.swift in Sources */,
 				4A3A7BBB2B94CABF004C60D2 /* AnalyticsViewController.swift in Sources */,
 				4A2F6F272BA4482200938F2E /* ActionsInteractor.swift in Sources */,
 				4A2F6F2B2BA44B2600938F2E /* ActionsInteractorOutput.swift in Sources */,

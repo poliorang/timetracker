@@ -19,5 +19,16 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+    		<key>NSExceptionDomains</key>
+    		<dict>
+        	<key>89.208.231.169</key>
+        	<dict>
+            		<key>NSExceptionAllowsInsecureHTTPLoads</key>
+            		<true/>
+        	</dict>
+    	</dict>
+	</dict>
 </dict>
 </plist>

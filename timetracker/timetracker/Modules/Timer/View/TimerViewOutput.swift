@@ -8,5 +8,11 @@
 protocol TimerViewOutput: AnyObject {
     func didTapOpenActions()
     
+    func сreateAction(action: Action, project: Project)
+    
     func projects() -> [String]
+    
+    func didStartTime()
+    
+    func didStopTime()
 }

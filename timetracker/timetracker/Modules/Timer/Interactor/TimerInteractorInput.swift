@@ -7,4 +7,6 @@
 
 protocol TimerInteractorInput: AnyObject {
     func getProjects() -> [String]
+    
+    func сreateAction(action: Action, project: Project)
 }

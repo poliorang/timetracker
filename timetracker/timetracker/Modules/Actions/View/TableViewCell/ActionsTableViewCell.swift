@@ -14,7 +14,7 @@ final class ActionsTableViewCell: UITableViewCell {
     private enum Constants {
         static let fontSize: CGFloat = 16.0
         static let bgOffsetLeft: CGFloat = 12.0
-        static let bgOffsetRight: CGFloat = 24.0
+        static let bgOffsetRight: CGFloat = 30.0
         static let bgOffseTopBottom: CGFloat = 5.0
     }
     
@@ -22,13 +22,13 @@ final class ActionsTableViewCell: UITableViewCell {
 
     private var action: Action?
     private var project: Project?
-    private var label: UILabel
+    private var actionLabel: UILabel
     private var projectLabel: HighlightedLabel
 
     // MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        label = UILabel().autolayout()
+        actionLabel = UILabel().autolayout()
         projectLabel = HighlightedLabel().autolayout()
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -50,7 +50,6 @@ final class ActionsTableViewCell: UITableViewCell {
     ) {
         self.action = action
         self.project = project
-        
         self.delegate = delegate
     }
 
@@ -66,17 +65,17 @@ final class ActionsTableViewCell: UITableViewCell {
             projectLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             projectLabel.heightAnchor.constraint(equalToConstant: 32)
         ])
-        contentView.addSubview(label)
+        contentView.addSubview(actionLabel)
         NSLayoutConstraint.activate([
-            label.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.bgOffsetLeft),
-            label.rightAnchor.constraint(lessThanOrEqualTo: projectLabel.leftAnchor, constant: -1 * Constants.bgOffsetLeft),
-            label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            actionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.bgOffsetLeft),
+            actionLabel.rightAnchor.constraint(lessThanOrEqualTo: projectLabel.leftAnchor, constant: -1 * Constants.bgOffsetLeft),
+            actionLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
 
     private func configureView() {
-        label.text = action
-        label.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
+        actionLabel.text = action
+        actionLabel.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
         
         projectLabel.text = project
         projectLabel.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
