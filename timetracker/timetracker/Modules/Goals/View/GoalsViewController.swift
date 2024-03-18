@@ -9,7 +9,14 @@ import UIKit
 
 class GoalsViewController: UIViewController {
 
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpUI()
+    }
+    
+    private func setUpUI() {
     }
 }
