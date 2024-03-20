@@ -6,5 +6,5 @@
 //
 
 protocol ActionsViewInput: AnyObject {
-    func didGetActionsCount(actionsCount: Int)
+    func didGetActions(actions: [ActionModel])
 }

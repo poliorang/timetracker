@@ -21,8 +21,8 @@ final class ActionsPresenter {
 }
 
 extension ActionsPresenter: ActionsViewOutput {
-    func setActionsCount() {
-        interactor.getActionsCount()
+    func setActions() {
+        interactor.getActions()
     }
 
     func actionsWithProjects(index: Int) -> ActionProject? {
@@ -31,8 +31,8 @@ extension ActionsPresenter: ActionsViewOutput {
 }
 
 extension ActionsPresenter: ActionsInteractorOutput {
-    func didGetActionsCount(actionsCount: Int) {
-        view?.didGetActionsCount(actionsCount: actionsCount)
+    func didGetActions(actions: [ActionModel]) {
+        view?.didGetActions(actions: actions)
     }
 }
 

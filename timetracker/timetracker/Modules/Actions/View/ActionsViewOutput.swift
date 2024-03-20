@@ -6,7 +6,7 @@
 //
 
 protocol ActionsViewOutput: AnyObject {
-    func setActionsCount()
+    func setActions()
     
     func actionsWithProjects(index: Int) -> ActionProject?
 }

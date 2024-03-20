@@ -32,9 +32,9 @@ extension ActionsInteractor: ActionsInteractorInput {
         }
     }
     
-    func getActionsCount() {
+    func getActions() {
         getActions { actions in
-            self.output?.didGetActionsCount(actionsCount: actions.count)
+            self.output?.didGetActions(actions: actions)
         }
     }
     

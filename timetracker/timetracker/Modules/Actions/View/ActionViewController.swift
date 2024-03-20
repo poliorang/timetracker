@@ -67,14 +67,14 @@ final class ActionViewController: UIViewController {
     }
     
     private func updateTableView() {
-        output.setActionsCount()
+        output.setActions()
     }
 }
 
 extension ActionViewController: ActionsViewInput {
-    func didGetActionsCount(actionsCount: Int) {
+    func didGetActions(actions: [ActionModel]) {
         tableViewDataSource.update(
-            with: actionsCount,
+            with: actions,
             tableView: tableView,
             delegate: self
         )

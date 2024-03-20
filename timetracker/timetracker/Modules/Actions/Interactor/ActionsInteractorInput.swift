@@ -6,7 +6,7 @@
 //
 
 protocol ActionsInteractorInput: AnyObject {
-    func getActionsCount()
+    func getActions()
     
     func getAction(index: Int) -> ActionProject?
 }

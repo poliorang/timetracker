@@ -153,6 +153,7 @@ class TimerViewController: UIViewController {
         actionTextField.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
         actionTextField.delegate = self
         actionTextField.alpha = 0
+        actionTextField.layer.cornerRadius = 12
 
         actionsButton.tintColor = .gray
         let imageActionButton = UIImage(systemName: Constants.textFieldButtonImageSystemName)!
@@ -169,6 +170,7 @@ class TimerViewController: UIViewController {
         projectTextField.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
         projectTextField.delegate = self
         projectTextField.alpha = 0
+        projectTextField.layer.cornerRadius = 12
         
         projectsTabControl.alpha = 0
         projectsTabControl.contentInset.left = 16
@@ -195,8 +197,11 @@ class TimerViewController: UIViewController {
 
     private func startTimer() {
         guard let actionName = actionTextField.text?.trimmedAndNormalized,
-              let projectName = projectTextField.text?.trimmedAndNormalized else {
-            return
+              let projectName = projectTextField.text?.trimmedAndNormalized,
+              !actionName.isEmpty, !projectName.isEmpty else {
+                  actionTextField.flashAlert()
+                  projectTextField.flashAlert()
+                  return
         }
         screenState = .time
         playButton.setBackgroundImage(Constants.stopImage, for: .normal)
