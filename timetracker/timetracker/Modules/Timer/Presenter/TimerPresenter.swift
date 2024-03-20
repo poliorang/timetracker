@@ -44,15 +44,20 @@ extension TimerPresenter: TimerViewOutput {
         view?.present(module: assemblyFactory.actionsModuleAssembly().module().view)
     }
     
-    func projects() -> [String] {
-        return interactor.getProjects()
+    func setProjects() {
+        interactor.getProjects { projectNames in
+            print(projectNames)
+            self.view?.didGetProjects(projectNames: projectNames)
+        }
+        
+        interactor.getActions { actions in
+            for action in actions {
+                print(action.name)
+            }
+        }
     }
     
     func didStartTime() {
-        Task {
-            await printFetchedData()
-        }
-
         view?.updateTime(time: String(format: "%02d:%02d:%02d", 0, 0, 0))
         timer = Timer.scheduledTimer(timeInterval: 1.0,
                                           target: self,
@@ -65,32 +70,10 @@ extension TimerPresenter: TimerViewOutput {
         timer?.invalidate()
         seconds = 0
     }
-    
-    
-    
-    func fetchDataFromServer() async throws -> Data {
-        let url = URL(string: "http://89.208.231.169:8080/me/projects")!
-        let (data, _) = try await URLSession.shared.data(from: url)
-        return data
-    }
-
-    func printFetchedData() async {
-        do {
-            let data = try await fetchDataFromServer()
-            if let string = String(data: data, encoding: .utf8) {
-                print(string)
-            } else {
-                print("Failed to convert data to string")
-            }
-        } catch {
-            print("Error fetching data: \(error)")
-        }
-    }
-
 }
 
 extension TimerPresenter: TimerInteractorOutput {
     func updateProject() {
-        view?.updateProject(projects: projects())
+//        view?.updateProject(projects: projects())
     }
 }

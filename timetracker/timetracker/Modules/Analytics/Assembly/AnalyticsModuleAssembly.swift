@@ -8,7 +8,7 @@
 import UIKit
 
 protocol BaseAssembly {
-    func module() -> (view: UIViewController, moduleInput: AnyObject)
+    func module() async -> (view: UIViewController, moduleInput: AnyObject)
 }
 
 final class AnalyticsModuleAssembly: BaseAssembly {

@@ -10,7 +10,7 @@ protocol TimerViewOutput: AnyObject {
     
     func сreateAction(action: Action, project: Project)
     
-    func projects() -> [String]
+    func setProjects()
     
     func didStartTime()
     

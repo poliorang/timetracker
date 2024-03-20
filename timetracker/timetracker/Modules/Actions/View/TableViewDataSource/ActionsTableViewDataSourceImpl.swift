@@ -43,7 +43,9 @@ extension ActionsTableViewDataSourceImpl: ActionsTableViewDataSource {
         self.tableView = tableView
         self.delegate = delegate
 
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            tableView.reloadData()
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

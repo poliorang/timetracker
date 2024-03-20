@@ -42,6 +42,7 @@ final class ActionViewController: UIViewController {
         super.viewDidLoad()
         setUpUI()
         setUpTableView()
+        updateTableView()
     }
 
     // MARK: - Private functions
@@ -63,18 +64,21 @@ final class ActionViewController: UIViewController {
         tableView.delegate = tableViewDataSource
         tableView.dataSource = tableViewDataSource
         tableView.separatorColor = .black
-        
-        let tableViewUpdate = output.actionsCount()
-        tableViewDataSource.update(
-            with: tableViewUpdate,
-            tableView: tableView,
-            delegate: self
-        )
+    }
+    
+    private func updateTableView() {
+        output.setActionsCount()
     }
 }
 
 extension ActionViewController: ActionsViewInput {
-    
+    func didGetActionsCount(actionsCount: Int) {
+        tableViewDataSource.update(
+            with: actionsCount,
+            tableView: tableView,
+            delegate: self
+        )
+    }
 }
 
 extension ActionViewController: ActionsTableViewDataSourceDelegate {
@@ -86,4 +90,6 @@ extension ActionViewController: ActionsTableViewDataSourceDelegate {
         delegate?.update(action: action)
         self.dismiss(animated: true)
     }
+    
+    
 }

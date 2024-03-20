@@ -14,5 +14,5 @@ protocol TimerViewInput: AnyObject {
     
     func updateTime(time: String)
     
-//    func didUpdateTime()
+    func didGetProjects(projectNames: [Project])
 }

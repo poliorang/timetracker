@@ -73,6 +73,7 @@ class TimerViewController: UIViewController {
         setUpUI()
         setUpAppearance()
         addKeyboardObservers()
+        output.setProjects()
     }
 
     // MARK: - Private functions
@@ -171,7 +172,6 @@ class TimerViewController: UIViewController {
         
         projectsTabControl.alpha = 0
         projectsTabControl.contentInset.left = 16
-        projectsTabControl.labels = output.projects()
         projectsTabControl.onTap = { [weak self] tabText in
             self?.projectTextField.text = tabText
         }
@@ -323,6 +323,12 @@ extension TimerViewController: TimerViewInput {
     
     func updateProject(projects: [Project]) {
         projectsTabControl.labels = projects
+    }
+    
+    func didGetProjects(projectNames: [Project]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.projectsTabControl.labels = projectNames
+        }
     }
 }
 

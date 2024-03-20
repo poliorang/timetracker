@@ -6,7 +6,9 @@
 //
 
 protocol TimerInteractorInput: AnyObject {
-    func getProjects() -> [String]
+    func getProjects(completion: @escaping ([Project]) -> Void)
+    
+    func getActions(completion: @escaping ([ActionModel]) -> Void)
     
     func сreateAction(action: Action, project: Project)
 }
