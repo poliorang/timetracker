@@ -49,6 +49,7 @@
 		4A2F6F472BAB135700938F2E /* UITextField+ColorsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F462BAB135700938F2E /* UITextField+ColorsAnimation.swift */; };
 		4A2F6F492BAB403100938F2E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F482BAB403100938F2E /* Response.swift */; };
 		4A2F6F4B2BAB486500938F2E /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F4A2BAB486500938F2E /* Date+Format.swift */; };
+		4A2F6F4D2BAC505800938F2E /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F4C2BAC505800938F2E /* Requests.swift */; };
 		4A3A7BA22B94C76D004C60D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */; };
 		4A3A7BA42B94C76D004C60D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */; };
 		4A3A7BA62B94C76D004C60D2 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA52B94C76D004C60D2 /* TimerViewController.swift */; };
@@ -101,6 +102,7 @@
 		4A2F6F462BAB135700938F2E /* UITextField+ColorsAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+ColorsAnimation.swift"; sourceTree = "<group>"; };
 		4A2F6F482BAB403100938F2E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		4A2F6F4A2BAB486500938F2E /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
+		4A2F6F4C2BAC505800938F2E /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		4A3A7B9E2B94C76D004C60D2 /* timetracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				4A2F6F3E2BA715FA00938F2E /* Action.swift */,
 				4A2F6F422BA9A51800938F2E /* Project.swift */,
 				4A2F6F482BAB403100938F2E /* Response.swift */,
+				4A2F6F4C2BAC505800938F2E /* Requests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				4A2F6F432BA9A51800938F2E /* Project.swift in Sources */,
 				4A3A7BA22B94C76D004C60D2 /* AppDelegate.swift in Sources */,
 				4A2F6F192BA35D7900938F2E /* ActionsPresenter.swift in Sources */,
+				4A2F6F4D2BAC505800938F2E /* Requests.swift in Sources */,
 				4A2F6EDF2BA0EDE100938F2E /* TimerModuleAssembly.swift in Sources */,
 				4A2F6F202BA35EB300938F2E /* ActionsTableViewDataSourceImpl.swift in Sources */,
 				4A2F6EFD2BA0F3C100938F2E /* AnalyticsViewInput.swift in Sources */,
@@ -579,7 +583,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -636,7 +640,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -659,6 +663,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -685,6 +690,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
