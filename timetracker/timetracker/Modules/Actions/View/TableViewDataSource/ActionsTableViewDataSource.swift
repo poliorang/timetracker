@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ActionsTableViewDataSource: UITableViewDataSource, UITableViewDelegate {
-    func update(with cellCount: Int,
+    func update(with actions: [ActionModel],
                 tableView: UITableView,
                 delegate: ActionsTableViewDataSourceDelegate
     )

@@ -6,5 +6,5 @@
 //
 
 protocol ActionsInteractorOutput: AnyObject {
-
+    func didGetActions(actions: [ActionModel])
 }

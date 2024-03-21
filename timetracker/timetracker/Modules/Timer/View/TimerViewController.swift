@@ -73,6 +73,7 @@ class TimerViewController: UIViewController {
         setUpUI()
         setUpAppearance()
         addKeyboardObservers()
+        output.setProjects()
     }
 
     // MARK: - Private functions
@@ -152,6 +153,7 @@ class TimerViewController: UIViewController {
         actionTextField.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
         actionTextField.delegate = self
         actionTextField.alpha = 0
+        actionTextField.layer.cornerRadius = 12
 
         actionsButton.tintColor = .gray
         let imageActionButton = UIImage(systemName: Constants.textFieldButtonImageSystemName)!
@@ -168,10 +170,11 @@ class TimerViewController: UIViewController {
         projectTextField.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
         projectTextField.delegate = self
         projectTextField.alpha = 0
+        projectTextField.layer.cornerRadius = 12
+        projectTextField.autocapitalizationType = .none
         
         projectsTabControl.alpha = 0
         projectsTabControl.contentInset.left = 16
-        projectsTabControl.labels = output.projects()
         projectsTabControl.onTap = { [weak self] tabText in
             self?.projectTextField.text = tabText
         }
@@ -195,8 +198,11 @@ class TimerViewController: UIViewController {
 
     private func startTimer() {
         guard let actionName = actionTextField.text?.trimmedAndNormalized,
-              let projectName = projectTextField.text?.trimmedAndNormalized else {
-            return
+              let projectName = projectTextField.text?.trimmedAndNormalized,
+              !actionName.isEmpty, !projectName.isEmpty else {
+                  actionTextField.flashAlert()
+                  projectTextField.flashAlert()
+                  return
         }
         screenState = .time
         playButton.setBackgroundImage(Constants.stopImage, for: .normal)
@@ -243,7 +249,7 @@ class TimerViewController: UIViewController {
         
         timerLabel.text = ""
         output.didStopTime()
-        output.сreateAction(action: actionName, project: projectName)
+        output.сreateActionWithProject(action: actionName, project: projectName)
     }
 
     private func addKeyboardObservers() {
@@ -321,8 +327,10 @@ extension TimerViewController: TimerViewInput {
         present(childViewController, animated: true)
     }
     
-    func updateProject(projects: [Project]) {
-        projectsTabControl.labels = projects
+    func didGetProjects(projectNames: [Project]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.projectsTabControl.labels = projectNames
+        }
     }
 }
 

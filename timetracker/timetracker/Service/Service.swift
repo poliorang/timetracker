@@ -2,27 +2,41 @@
 //  Service.swift
 //  timetracker
 //
-//  Created by Polina Egorova on 16.03.2024.
+//  Created by Polina Egorova on 19.03.2024.
 //
 
-final class ServiceImpl {
+import Foundation
 
-    static let shared = ServiceImpl()
+enum GetRequestArgs {
+    case action
+    case project
     
-    var data: [Project : Set<Action>] = [
-        "work" : ["solve problems on the leetcode", "create UI"],
-        "life" : ["food"],
-        "fitness" : ["run for 15 min / day"],
-        "read" : ["Stephen Hawking, A Brief History Of Time"]
-    ]
-    
-    // MARK: - Private properties
-    
-    
-    
-    // MARK: - Init
-
-    private init() {
-        
+    var request: String {
+        switch self {
+        case .action:
+            return "me/entries"
+        case .project:
+            return "me/projects"
+        }
     }
+}
+
+enum PostRequestArgs {
+    case action
+    case project
+    
+    var request: String {
+        switch self {
+        case .action:
+            return "entries/create"
+        case .project:
+            return "projects/create"
+        }
+    }
+}
+
+protocol Service: AnyObject {
+    func getDataFromServer(type: GetRequestArgs) async throws -> Data?
+    
+    func postDataToServer(object: Encodable, type: PostRequestArgs) async -> Data?
 }

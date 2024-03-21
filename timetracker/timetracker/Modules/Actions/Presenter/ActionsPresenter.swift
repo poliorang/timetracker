@@ -21,18 +21,23 @@ final class ActionsPresenter {
 }
 
 extension ActionsPresenter: ActionsViewOutput {
-    func actionsCount() -> Int {
-        return interactor.getActionsCount()
-    }
-
-    func actionsWithProjects(index: Int) -> ActionProject? {
-        return interactor.getAction(index: index)
+    func setActions() {
+        interactor.getActions()
     }
 }
 
 extension ActionsPresenter: ActionsInteractorOutput {
-
+    func didGetActions(actions: [ActionModel]) {
+        var filteredActions = [ActionModel]()
+        for action in actions {
+            if filteredActions.firstIndex(where: { $0.name == action.name && $0.project_id == action.project_id } ) == nil {
+                filteredActions.append(action)
+            }
+        }
+        view?.didGetActions(actions: filteredActions)
+    }
 }
 
 extension ActionsPresenter: ActionsModuleInput {
+    
 }

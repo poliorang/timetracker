@@ -8,8 +8,6 @@
 import UIKit
 
 protocol ActionsTableViewDataSourceDelegate: AnyObject {
-    func getActionWithProject(index: Int) -> ActionProject?
-    
     func setSelectedAction(action: ActionProject?)
 }
 
@@ -22,7 +20,7 @@ final class ActionsTableViewDataSourceImpl: NSObject {
         static let cellIdentifier: String = "ActionsTableViewCell"
     }
 
-    private var cellCount: Int?
+    private var actions: [ActionModel]?
     private weak var tableView: UITableView?
     private weak var delegate: ActionsTableViewDataSourceDelegate?
 
@@ -35,35 +33,34 @@ final class ActionsTableViewDataSourceImpl: NSObject {
 
 extension ActionsTableViewDataSourceImpl: ActionsTableViewDataSource {
 
-    func update(with cellCount: Int,
+    func update(with actions: [ActionModel],
                 tableView: UITableView,
                 delegate: ActionsTableViewDataSourceDelegate
     ) {
-        self.cellCount = cellCount
+        self.actions = actions
         self.tableView = tableView
         self.delegate = delegate
 
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            tableView.reloadData()
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellCount ?? 0
+        return actions?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as? ActionsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as? ActionsTableViewCell,
+            let actions = actions else {
             assertionFailure("Failed to set tableview cell")
             return UITableViewCell()
         }
 
-        let action: ActionProject? = delegate?.getActionWithProject(index: indexPath.row)
-        guard let action = action else {
-            assertionFailure("Failed to get actions")
-            return UITableViewCell()
-        }
+        let action = actions[indexPath.row]
         cell.configure(
-            action: action.0,
-            project: action.1,
+            action: action.name,
+            project: action.project_name,
             delegate: delegate
         )
         cell.setUpUI()
@@ -82,7 +79,7 @@ extension ActionsTableViewDataSourceImpl: ActionsTableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let action = delegate?.getActionWithProject(index: indexPath.row)
-        delegate?.setSelectedAction(action: action)
+        guard let action = actions?[indexPath.row] else { return }
+        delegate?.setSelectedAction(action: ActionProject(action.name, action.project_name))
     }
 }
