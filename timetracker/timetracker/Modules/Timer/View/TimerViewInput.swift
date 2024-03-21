@@ -10,8 +10,6 @@ import UIKit
 protocol TimerViewInput: AnyObject {
     func present(module: UIViewController)
     
-    func updateProject(projects: [Project])
-    
     func updateTime(time: String)
     
     func didGetProjects(projectNames: [Project])

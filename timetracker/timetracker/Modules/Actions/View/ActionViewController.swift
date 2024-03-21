@@ -15,10 +15,12 @@ final class ActionViewController: UIViewController {
     
     private enum Constants {
         static let cellIdentifier: String = "ActionsTableViewCell"
+        static let emptyLabelText: String = "You haven't tracked the time yet"
     }
     private let output: ActionsViewOutput
     private let tableViewDataSource: ActionsTableViewDataSource
     private var tableView: UITableView
+    private var emptyLabel: UILabel
 
     // MARK: - Init
 
@@ -28,6 +30,7 @@ final class ActionViewController: UIViewController {
         self.output = output
         self.tableViewDataSource = tableViewDataSource
         self.tableView = UITableView().autolayout()
+        self.emptyLabel = UILabel().autolayout()
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -41,7 +44,7 @@ final class ActionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-        setUpTableView()
+        setUpAppearance()
         updateTableView()
     }
 
@@ -50,16 +53,29 @@ final class ActionViewController: UIViewController {
     private func setUpUI() {
         view.backgroundColor = .white
 
+        view.addSubview(emptyLabel)
+        NSLayoutConstraint.activate([
+            emptyLabel.leftAnchor.constraint(equalTo: view.leftAnchor),
+            emptyLabel.rightAnchor.constraint(equalTo: view.rightAnchor),
+            emptyLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
+            emptyLabel.heightAnchor.constraint(equalToConstant: 32)
+        ])
+        
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
-    private func setUpTableView() {
+    private func setUpAppearance() {
+        emptyLabel.text = Constants.emptyLabelText
+        emptyLabel.textColor = .systemGray2
+        emptyLabel.textAlignment = .center
+        emptyLabel.isHidden = true
+        
         tableView.register(ActionsTableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
         tableView.delegate = tableViewDataSource
         tableView.dataSource = tableViewDataSource
@@ -73,6 +89,18 @@ final class ActionViewController: UIViewController {
 
 extension ActionViewController: ActionsViewInput {
     func didGetActions(actions: [ActionModel]) {
+        if actions.isEmpty {
+            DispatchQueue.main.async {
+                self.emptyLabel.isHidden = false
+                self.tableView.isHidden = true
+            }
+            return
+        }
+        
+        DispatchQueue.main.async {
+            self.emptyLabel.isHidden = true
+            self.tableView.isHidden = false
+        }
         tableViewDataSource.update(
             with: actions,
             tableView: tableView,
@@ -82,10 +110,8 @@ extension ActionViewController: ActionsViewInput {
 }
 
 extension ActionViewController: ActionsTableViewDataSourceDelegate {
-    
     func setSelectedAction(action: ActionProject?) {
         delegate?.update(action: action)
         self.dismiss(animated: true)
     }
-
 }

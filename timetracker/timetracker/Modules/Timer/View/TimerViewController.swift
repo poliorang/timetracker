@@ -327,10 +327,6 @@ extension TimerViewController: TimerViewInput {
         present(childViewController, animated: true)
     }
     
-    func updateProject(projects: [Project]) {
-        projectsTabControl.labels = projects
-    }
-    
     func didGetProjects(projectNames: [Project]) {
         DispatchQueue.main.async { [weak self] in
             self?.projectsTabControl.labels = projectNames
