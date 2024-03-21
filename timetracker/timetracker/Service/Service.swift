@@ -21,6 +21,22 @@ enum GetRequestArgs {
     }
 }
 
+enum PostRequestArgs {
+    case action
+    case project
+    
+    var request: String {
+        switch self {
+        case .action:
+            return "entries/create"
+        case .project:
+            return "projects/create"
+        }
+    }
+}
+
 protocol Service: AnyObject {
     func getDataFromServer(type: GetRequestArgs) async throws -> Data?
+    
+    func postDataToServer(object: Encodable, type: PostRequestArgs) async -> Data?
 }

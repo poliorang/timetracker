@@ -7,7 +7,5 @@
 
 protocol ActionsViewOutput: AnyObject {
     func setActions()
-    
-    func actionsWithProjects(index: Int) -> ActionProject?
 }
 

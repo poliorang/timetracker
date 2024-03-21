@@ -171,6 +171,7 @@ class TimerViewController: UIViewController {
         projectTextField.delegate = self
         projectTextField.alpha = 0
         projectTextField.layer.cornerRadius = 12
+        projectTextField.autocapitalizationType = .none
         
         projectsTabControl.alpha = 0
         projectsTabControl.contentInset.left = 16
@@ -248,7 +249,7 @@ class TimerViewController: UIViewController {
         
         timerLabel.text = ""
         output.didStopTime()
-        output.сreateAction(action: actionName, project: projectName)
+        output.сreateActionWithProject(action: actionName, project: projectName)
     }
 
     private func addKeyboardObservers() {

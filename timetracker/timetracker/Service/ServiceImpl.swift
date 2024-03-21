@@ -11,16 +11,9 @@ final class ServiceImpl: Service {
     
     static let shared = ServiceImpl()
     
-    var data: [Project : Set<Action>] = [
-        "work" : ["solve problems on the leetcode", "create UI"],
-        "life" : ["food"],
-        "fitness" : ["run for 15 min / day"],
-        "read" : ["Stephen Hawking, A Brief History Of Time"]
-    ]
-    
     // MARK: - Private properties
     
-    private let url = "http://89.208.231.169:8080/"//URL(string: "http://89.208.231.169:8080/")
+    private let url = "http://89.208.231.169:8080/"
     
     // MARK: - Init
 
@@ -40,31 +33,31 @@ final class ServiceImpl: Service {
         }
     }
     
-    func postDataToServer() async {
-        let url = URL(string: url)!
+    func postDataToServer(object: Encodable, type: PostRequestArgs) async -> Data? {
+        
+        let url = URL(string: url + type.request)!
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
-        let project = ProjectModel(id: 1, name: "Project Name")
-        
         do {
-            let jsonData = try JSONEncoder().encode(project)
+            let jsonData = try JSONEncoder().encode(object)
             request.httpBody = jsonData
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             
             let (data, response) = try await URLSession.shared.data(for: request)
-            
             if let httpResponse = response as? HTTPURLResponse {
                 print("Status code: \(httpResponse.statusCode)")
                 
-                if let responseData = String(data: data, encoding: .utf8) {
-                    print("Response data: \(responseData)")
+                guard let responseData = String(data: data, encoding: .utf8) else {
+                    return nil
                 }
+                print("Response data: \(responseData)")
             }
+            return data
         } catch {
             print("Error: \(error)")
+            return nil
         }
     }
-
 }

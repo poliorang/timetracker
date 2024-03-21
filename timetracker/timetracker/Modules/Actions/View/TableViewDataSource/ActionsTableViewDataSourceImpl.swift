@@ -8,8 +8,6 @@
 import UIKit
 
 protocol ActionsTableViewDataSourceDelegate: AnyObject {
-    func getActionWithProject(index: Int) -> ActionProject?
-    
     func setSelectedAction(action: ActionProject?)
 }
 
@@ -81,7 +79,7 @@ extension ActionsTableViewDataSourceImpl: ActionsTableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let action = delegate?.getActionWithProject(index: indexPath.row)
-        delegate?.setSelectedAction(action: action)
+        guard let action = actions?[indexPath.row] else { return }
+        delegate?.setSelectedAction(action: ActionProject(action.name, action.project_name))
     }
 }

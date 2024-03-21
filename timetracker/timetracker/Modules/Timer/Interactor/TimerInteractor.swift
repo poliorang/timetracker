@@ -15,7 +15,7 @@ final class TimerInteractor {
 }
 
 extension TimerInteractor: TimerInteractorInput {
-    func getProjects(completion: @escaping ([Project]) -> Void) {
+    func getProjects(completion: @escaping ([ProjectModel]) -> Void) {
         Task {
             guard let data = await service.getDataFromServer(type: .project) else {
                 print("Failed | get projects")
@@ -30,12 +30,7 @@ extension TimerInteractor: TimerInteractorInput {
                 print("Failed | decode projects")
             }
 
-            var projectNames = [Project]()
-            for i in 0..<projects.count {
-                projectNames.append(projects[i].name)
-            }
-
-            completion(projects.map { $0.name })
+            completion(projects)
         }
     }
     
@@ -58,9 +53,31 @@ extension TimerInteractor: TimerInteractorInput {
         }
     }
 
-    func сreateAction(action: Action, project: Project) {
-        service.data[project, default: []].insert(action)
-        print("action was created")
-        output?.updateProject()
+    func postAction(action: PostActionModel,
+                    completion: @escaping (Int?) -> Void) {
+        Task {
+            guard let data = await service.postDataToServer(object: action, type: .action) else {
+                print("Failed | post action")
+                completion(nil)
+                return
+            }
+            
+            let response = try JSONDecoder().decode(ResponseModel.self, from: data)
+            completion(response.id)
+        }
+    }
+    
+    func postProject(project: PostProjectModel,
+                     completion: @escaping (Int?) -> Void) {
+        Task {
+            guard let data = await service.postDataToServer(object: project, type: .project) else {
+                print("Failed | post project")
+                completion(nil)
+                return
+            }
+            
+            let response = try JSONDecoder().decode(ResponseModel.self, from: data)
+            completion(response.id)
+        }
     }
 }

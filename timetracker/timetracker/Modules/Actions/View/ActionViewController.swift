@@ -82,14 +82,10 @@ extension ActionViewController: ActionsViewInput {
 }
 
 extension ActionViewController: ActionsTableViewDataSourceDelegate {
-    func getActionWithProject(index: Int) -> ActionProject? {
-        return output.actionsWithProjects(index: index)
-    }
     
     func setSelectedAction(action: ActionProject?) {
         delegate?.update(action: action)
         self.dismiss(animated: true)
     }
-    
-    
+
 }

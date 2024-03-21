@@ -24,17 +24,20 @@ extension ActionsPresenter: ActionsViewOutput {
     func setActions() {
         interactor.getActions()
     }
-
-    func actionsWithProjects(index: Int) -> ActionProject? {
-        return interactor.getAction(index: index)
-    }
 }
 
 extension ActionsPresenter: ActionsInteractorOutput {
     func didGetActions(actions: [ActionModel]) {
-        view?.didGetActions(actions: actions)
+        var filteredActions = [ActionModel]()
+        for action in actions {
+            if filteredActions.firstIndex(where: { $0.name == action.name && $0.project_id == action.project_id } ) == nil {
+                filteredActions.append(action)
+            }
+        }
+        view?.didGetActions(actions: filteredActions)
     }
 }
 
 extension ActionsPresenter: ActionsModuleInput {
+    
 }
