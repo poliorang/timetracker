@@ -62,7 +62,7 @@ extension TimerInteractor: TimerInteractorInput {
                 return
             }
             
-            let response = try JSONDecoder().decode(ResponseModel.self, from: data)
+            let response = try JSONDecoder().decode(IDModel.self, from: data)
             completion(response.id)
         }
     }
@@ -76,7 +76,7 @@ extension TimerInteractor: TimerInteractorInput {
                 return
             }
             
-            let response = try JSONDecoder().decode(ResponseModel.self, from: data)
+            let response = try JSONDecoder().decode(IDModel.self, from: data)
             completion(response.id)
         }
     }

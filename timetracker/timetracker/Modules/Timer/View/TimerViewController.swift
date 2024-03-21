@@ -118,22 +118,23 @@ class TimerViewController: UIViewController {
         
         view.addSubview(selectedProjectLabel)
         NSLayoutConstraint.activate([
-            selectedProjectLabel.rightAnchor.constraint(equalTo: view.centerXAnchor, constant: -16),
-            selectedProjectLabel.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 16),
+            selectedProjectLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            selectedProjectLabel.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 12),
             selectedProjectLabel.heightAnchor.constraint(equalToConstant: 32)
         ])
-        selectedActionLabel.isHidden = true
+        selectedProjectLabel.isHidden = true
         view.addSubview(selectedActionLabel)
         NSLayoutConstraint.activate([
-            selectedActionLabel.leftAnchor.constraint(equalTo: view.centerXAnchor, constant: 16),
-            selectedActionLabel.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 16),
+            selectedActionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            selectedActionLabel.topAnchor.constraint(equalTo: selectedProjectLabel.bottomAnchor, constant: 8),
             selectedActionLabel.heightAnchor.constraint(equalToConstant: 32)
         ])
-        selectedProjectLabel.isHidden = true
+        selectedActionLabel.isHidden = true
+        
         view.addSubview(timerLabel)
         NSLayoutConstraint.activate([
             timerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            timerLabel.topAnchor.constraint(equalTo: selectedProjectLabel.bottomAnchor, constant: 8),
+            timerLabel.topAnchor.constraint(equalTo: selectedActionLabel.bottomAnchor, constant: 8),
             timerLabel.heightAnchor.constraint(equalToConstant: 32)
         ])
         timerLabel.isHidden = true
@@ -146,7 +147,7 @@ class TimerViewController: UIViewController {
         
         playButton.setBackgroundImage(Constants.startImage, for: .normal)
         playButton.tintColor = .black
-        playButton.imageView?.contentMode = .scaleAspectFit
+        playButton.contentMode = .scaleAspectFit
         playButton.addTarget(self, action: #selector(playButtonTap), for: .touchUpInside)
         
         actionTextField.placeholder = Constants.actionTextFieldPlaceholder
@@ -154,6 +155,7 @@ class TimerViewController: UIViewController {
         actionTextField.delegate = self
         actionTextField.alpha = 0
         actionTextField.layer.cornerRadius = 12
+        actionTextField.autocorrectionType = .no
 
         actionsButton.tintColor = .gray
         let imageActionButton = UIImage(systemName: Constants.textFieldButtonImageSystemName)!
@@ -172,7 +174,8 @@ class TimerViewController: UIViewController {
         projectTextField.alpha = 0
         projectTextField.layer.cornerRadius = 12
         projectTextField.autocapitalizationType = .none
-        
+        projectTextField.autocorrectionType = .no
+
         projectsTabControl.alpha = 0
         projectsTabControl.contentInset.left = 16
         projectsTabControl.onTap = { [weak self] tabText in
@@ -181,7 +184,7 @@ class TimerViewController: UIViewController {
         
         selectedActionLabel.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
         timerLabel.font = UIFont.boldSystemFont(ofSize: 14)
-        timerLabel.textColor = .systemGray3
+        timerLabel.textColor = .systemGray2
         timerLabel.text = ""
     }
     
@@ -209,7 +212,6 @@ class TimerViewController: UIViewController {
         
         selectedProjectLabel.text = projectName
         selectedActionLabel.text = actionName
-        
         selectedProjectLabel.isHidden = false
         selectedActionLabel.isHidden = false
         timerLabel.isHidden = false
@@ -219,6 +221,7 @@ class TimerViewController: UIViewController {
         actionsButton.isHidden = true
         
         output.didStartTime()
+        
     }
     
     private func stopTimer() {
@@ -308,13 +311,6 @@ class TimerViewController: UIViewController {
     }
 }
 
-extension TimerViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-}
-
 extension TimerViewController: TimerViewInput {
     
     func updateTime(time: String) {
@@ -340,5 +336,12 @@ extension TimerViewController: TimerViewControllerDelegate {
         actionTextField.text = action.0
         projectTextField.text = action.1
         projectsTabControl.setSelectedLabel(text: action.1)
+    }
+}
+
+extension TimerViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

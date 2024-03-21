@@ -40,6 +40,42 @@ final class TimerPresenter {
 
         view?.updateTime(time: String(format: Constants.timeLabelFormat, hours, minutes, secs))
     }
+    
+    // MARK: - Private functions
+    
+    private func сreateAction(action: Action, projectID: Int?) {
+        guard let projectID = projectID,
+              let timeStart = timeStart,
+              let timeEnd = timeEnd else {
+            print("Failed | get timeStart, timeEnd, projectID")
+            return
+        }
+
+        let newAction = PostActionModel(name: action, project_id: projectID, time_end: timeEnd, time_start: timeStart)
+        interactor.postAction(action: newAction, completion: { _ in
+            self.timeEnd = nil
+            self.timeStart = nil
+        })
+    }
+    
+    private func getProjectID(action: Action,
+                      project: Project,
+                      completion: @escaping (Action, Int?) -> Void) {
+        // if the project already exists
+        for i in 0..<projects.count {
+            if projects[i].name == project {
+                completion(action, projects[i].id)
+                return
+            }
+        }
+        
+        // if the project does not exist yet
+        interactor.postProject(project: PostProjectModel(name: project),
+                               completion: { id in
+            self.setProjects()
+            completion(action, id)
+        })
+    }
 }
 
 extension TimerPresenter: TimerViewOutput {
@@ -79,40 +115,6 @@ extension TimerPresenter: TimerViewOutput {
         getProjectID(action: action, project: project, 
                      completion: { action, projectId in
             self.сreateAction(action: action, projectID: projectId)
-        })
-    }
-    
-    private func сreateAction(action: Action, projectID: Int?) {
-        guard let projectID = projectID,
-              let timeStart = timeStart,
-              let timeEnd = timeEnd else {
-            print("Failed | get timeStart, timeEnd, projectID")
-            return
-        }
-
-        let newAction = PostActionModel(name: action, project_id: projectID, time_end: timeEnd, time_start: timeStart)
-        interactor.postAction(action: newAction, completion: { _ in
-            self.timeEnd = nil
-            self.timeStart = nil
-        })
-    }
-    
-    private func getProjectID(action: Action,
-                      project: Project,
-                      completion: @escaping (Action, Int?) -> Void) {
-        // if the project already exists
-        for i in 0..<projects.count {
-            if projects[i].name == project {
-                completion(action, projects[i].id)
-                return
-            }
-        }
-        
-        // if the project does not exist yet
-        interactor.postProject(project: PostProjectModel(name: project),
-                               completion: { id in
-            self.setProjects()
-            completion(action, id)
         })
     }
 }

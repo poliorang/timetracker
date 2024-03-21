@@ -7,34 +7,6 @@
 
 import Foundation
 
-enum GetRequestArgs {
-    case action
-    case project
-    
-    var request: String {
-        switch self {
-        case .action:
-            return "me/entries"
-        case .project:
-            return "me/projects"
-        }
-    }
-}
-
-enum PostRequestArgs {
-    case action
-    case project
-    
-    var request: String {
-        switch self {
-        case .action:
-            return "entries/create"
-        case .project:
-            return "projects/create"
-        }
-    }
-}
-
 protocol Service: AnyObject {
     func getDataFromServer(type: GetRequestArgs) async throws -> Data?
     
