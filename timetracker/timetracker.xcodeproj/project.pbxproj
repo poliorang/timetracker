@@ -385,8 +385,8 @@
 		4A3A7BA02B94C76D004C60D2 /* timetracker */ = {
 			isa = PBXGroup;
 			children = (
-				4A2F6F342BA5D23500938F2E /* Service */,
 				4A3A7BB52B94C774004C60D2 /* Application */,
+				4A2F6F342BA5D23500938F2E /* Service */,
 				4A2F6F072BA1B7B400938F2E /* DesignSystem */,
 				4A2F6F062BA107A600938F2E /* Modules */,
 				4A2F6F032BA1010B00938F2E /* Helpers */,

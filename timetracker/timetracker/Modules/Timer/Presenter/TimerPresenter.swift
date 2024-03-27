@@ -71,8 +71,8 @@ final class TimerPresenter {
         
         // if the project does not exist yet
         interactor.postProject(project: PostProjectModel(name: project),
-                               completion: { id in
-            self.setProjects()
+                               completion: { [weak self] id in
+            self?.setProjects()
             completion(action, id)
         })
     }
@@ -113,8 +113,8 @@ extension TimerPresenter: TimerViewOutput {
     
     func сreateActionWithProject(action: Action, project: Project) {
         getProjectID(action: action, project: project, 
-                     completion: { action, projectId in
-            self.сreateAction(action: action, projectID: projectId)
+                     completion: { [weak self] action, projectId in
+            self?.сreateAction(action: action, projectID: projectId)
         })
     }
 }

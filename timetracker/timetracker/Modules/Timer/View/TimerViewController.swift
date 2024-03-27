@@ -58,7 +58,7 @@ class TimerViewController: UIViewController {
         self.selectedProjectLabel = UILabel().autolayout()
         self.selectedActionLabel = UILabel().autolayout()
         self.timerLabel = UILabel().autolayout()
-        
+
         super.init(nibName: nil, bundle: nil)
     }
 

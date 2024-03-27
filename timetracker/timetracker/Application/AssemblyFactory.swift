@@ -29,9 +29,7 @@ final class AssemblyFactoryImpl {
     
     // MARK: - Init
 
-    private init() {
-        
-    }
+    private init() { }
 }
 
 extension AssemblyFactoryImpl: AssemblyFactory {
