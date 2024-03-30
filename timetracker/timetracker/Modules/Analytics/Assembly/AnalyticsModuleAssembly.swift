@@ -7,32 +7,26 @@
 
 import UIKit
 
-protocol BaseAssembly {
-    func module() async -> (view: UIViewController, moduleInput: AnyObject)
-}
+final class AnalyticsModuleAssembly {
 
-final class AnalyticsModuleAssembly: BaseAssembly {
-
-    func module() -> (view: UIViewController, moduleInput: AnyObject) {
-//        let interactor = OmgModel()
+    func module() -> (view: UIViewController, presenter: AnalyticsPresenter) {
+        let interactor = AnalyticsInteractor()
         
-        let presenter = AnalyticsPresenter()//(model: model)
+        let presenter = AnalyticsPresenter(interactor: interactor)
         
-//        let collectionViewDataSource = OmgCollectionViewDataSourceImpl()
-        
-//        let tableViewDataSource = OmgTableViewDataSourceImpl(collectionViewDataSource: collectionViewDataSource)
+        let tableViewDataSource = AnalyticsTableViewDataSourceImpl()
         
         let controller = AnalyticsViewController(
-//            output: presenter,
-//            tableViewDataSource: tableViewDataSource
+            output: presenter,
+            tableViewDataSource: tableViewDataSource
         )
-
-//        presenter.view = controller
-//        model.output = presenter
+        
+        presenter.view = controller
+        interactor.output = presenter
 
         return (
             view: controller,
-            moduleInput: presenter
+            presenter: presenter
         )
     }
 }

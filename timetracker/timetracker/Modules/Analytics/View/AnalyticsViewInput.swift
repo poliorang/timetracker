@@ -6,4 +6,7 @@
 //
 
 protocol AnalyticsViewInput: AnyObject {
+    func configureChart(data: [ProjectModel])
+    
+    func configureTableView(data: [ProjectModel])
 }

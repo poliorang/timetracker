@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TimerModuleAssembly: BaseAssembly {
+final class TimerModuleAssembly {
 
     func module() -> (view: UIViewController, moduleInput: AnyObject) {
         let interactor = TimerInteractor()

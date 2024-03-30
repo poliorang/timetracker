@@ -6,4 +6,5 @@
 //
 
 protocol AnalyticsViewOutput: AnyObject {
+    func setAnalytics()
 }

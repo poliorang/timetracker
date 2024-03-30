@@ -7,9 +7,14 @@
 
 import Foundation
 
+struct IDModel: Codable {
+    var id: Int
+}
+
 enum GetRequestArgs {
     case action
     case project
+    case statistics
     
     var request: String {
         switch self {
@@ -17,6 +22,8 @@ enum GetRequestArgs {
             return "me/entries"
         case .project:
             return "me/projects"
+        case .statistics:
+            return "me/projects/stat"
         }
     }
 }

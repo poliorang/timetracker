@@ -2,7 +2,7 @@
 //  Date+Format.swift
 //  timetracker
 //
-//  Created by Поли Оранж on 20.03.2024.
+//  Created by Polina Egorova on 20.03.2024.
 //
 
 import Foundation

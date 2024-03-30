@@ -22,8 +22,17 @@ final class ServiceImpl: Service {
     // MARK: - Functions
     
     func getDataFromServer(type: GetRequestArgs) async -> Data? {
-        let url = URL(string: url + type.request)!
+        var urlComponents = URLComponents(string: url + type.request)!
+        urlComponents.queryItems = [
+            URLQueryItem(name: "time_start", value: "2023-03-27T00:00:00Z"),
+            URLQueryItem(name: "time_end", value: "2024-03-31T00:00:00Z")
+        ]
+
         do {
+            guard let url = urlComponents.url else {
+                print("Error get url")
+                return nil
+            }
             let (data, _) = try await URLSession.shared.data(from: url)
             print("Received data: \(data)")
             return data

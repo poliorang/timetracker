@@ -33,8 +33,8 @@ extension ActionsInteractor: ActionsInteractorInput {
     }
     
     func getActions() {
-        getActions { actions in
-            self.output?.didGetActions(actions: actions)
+        getActions { [weak self] actions in
+            self?.output?.didGetActions(actions: actions)
         }
     }
 }

@@ -60,7 +60,7 @@ extension ActionsTableViewDataSourceImpl: ActionsTableViewDataSource {
         let action = actions[indexPath.row]
         cell.configure(
             action: action.name,
-            project: action.project_name,
+            project: action.projectName,
             delegate: delegate
         )
         cell.setUpUI()
@@ -80,6 +80,6 @@ extension ActionsTableViewDataSourceImpl: ActionsTableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let action = actions?[indexPath.row] else { return }
-        delegate?.setSelectedAction(action: ActionProject(action.name, action.project_name))
+        delegate?.setSelectedAction(action: ActionProject(action.name, action.projectName))
     }
 }

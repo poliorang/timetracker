@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class GoalsModuleAssembly: BaseAssembly {
+final class GoalsModuleAssembly {
 
     func module() -> (view: UIViewController, moduleInput: AnyObject) {
 //        let interactor = OmgModel()

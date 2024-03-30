@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18E207C20AF56090F54A4B6C /* libPods-timetracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 386EB9625270017DF7546243 /* libPods-timetracker.a */; };
 		4A2F6EDF2BA0EDE100938F2E /* TimerModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6EDE2BA0EDE100938F2E /* TimerModuleAssembly.swift */; };
 		4A2F6EEC2BA0F17500938F2E /* TimerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6EEB2BA0F17500938F2E /* TimerPresenter.swift */; };
 		4A2F6EEE2BA0F1C700938F2E /* TimerViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6EED2BA0F1C700938F2E /* TimerViewOutput.swift */; };
@@ -34,8 +35,6 @@
 		4A2F6F272BA4482200938F2E /* ActionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F262BA4482200938F2E /* ActionsInteractor.swift */; };
 		4A2F6F292BA4482700938F2E /* ActionsInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F282BA4482700938F2E /* ActionsInteractorInput.swift */; };
 		4A2F6F2B2BA44B2600938F2E /* ActionsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F2A2BA44B2600938F2E /* ActionsInteractorOutput.swift */; };
-		4A2F6F2D2BA59EF700938F2E /* TimerModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F2C2BA59EF700938F2E /* TimerModuleInput.swift */; };
-		4A2F6F2F2BA59F7D00938F2E /* ActionsModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F2E2BA59F7D00938F2E /* ActionsModuleInput.swift */; };
 		4A2F6F312BA5D1E900938F2E /* TimerInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F302BA5D1E900938F2E /* TimerInteractorInput.swift */; };
 		4A2F6F332BA5D20600938F2E /* TimerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F322BA5D20600938F2E /* TimerInteractor.swift */; };
 		4A2F6F362BA5D24800938F2E /* ServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F352BA5D24800938F2E /* ServiceImpl.swift */; };
@@ -47,9 +46,17 @@
 		4A2F6F432BA9A51800938F2E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F422BA9A51800938F2E /* Project.swift */; };
 		4A2F6F452BA9A58E00938F2E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F442BA9A58E00938F2E /* Service.swift */; };
 		4A2F6F472BAB135700938F2E /* UITextField+ColorsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F462BAB135700938F2E /* UITextField+ColorsAnimation.swift */; };
-		4A2F6F492BAB403100938F2E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F482BAB403100938F2E /* Response.swift */; };
 		4A2F6F4B2BAB486500938F2E /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F4A2BAB486500938F2E /* Date+Format.swift */; };
 		4A2F6F4D2BAC505800938F2E /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F4C2BAC505800938F2E /* Requests.swift */; };
+		4A2F70792BB6D1EA00938F2E /* AnalyticsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70782BB6D1EA00938F2E /* AnalyticsInteractor.swift */; };
+		4A2F707B2BB6D46B00938F2E /* AnalyticsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F707A2BB6D46A00938F2E /* AnalyticsInteractorOutput.swift */; };
+		4A2F707D2BB6D47500938F2E /* AnalyticsInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F707C2BB6D47500938F2E /* AnalyticsInteractorInput.swift */; };
+		4A2F707F2BB6D4FA00938F2E /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F707E2BB6D4FA00938F2E /* Analytics.swift */; };
+		4A2F70812BB8025700938F2E /* UIColor+Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70802BB8025700938F2E /* UIColor+Generator.swift */; };
+		4A2F70852BB8173100938F2E /* AnalyticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70842BB8173100938F2E /* AnalyticsTableViewCell.swift */; };
+		4A2F70872BB8173D00938F2E /* AnalyticsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70862BB8173D00938F2E /* AnalyticsTableViewDataSource.swift */; };
+		4A2F708A2BB8174900938F2E /* AnalyticsTableViewDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70892BB8174900938F2E /* AnalyticsTableViewDataSourceImpl.swift */; };
+		4A2F708C2BB822E500938F2E /* String+Seconds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F708B2BB822E500938F2E /* String+Seconds.swift */; };
 		4A3A7BA22B94C76D004C60D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */; };
 		4A3A7BA42B94C76D004C60D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */; };
 		4A3A7BA62B94C76D004C60D2 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA52B94C76D004C60D2 /* TimerViewController.swift */; };
@@ -60,6 +67,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0DB46BBFB271A972F214B2DE /* Pods-timetracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-timetracker.release.xcconfig"; path = "Target Support Files/Pods-timetracker/Pods-timetracker.release.xcconfig"; sourceTree = "<group>"; };
+		386EB9625270017DF7546243 /* libPods-timetracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-timetracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A2F6EDE2BA0EDE100938F2E /* TimerModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModuleAssembly.swift; sourceTree = "<group>"; };
 		4A2F6EEB2BA0F17500938F2E /* TimerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPresenter.swift; sourceTree = "<group>"; };
 		4A2F6EED2BA0F1C700938F2E /* TimerViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewOutput.swift; sourceTree = "<group>"; };
@@ -87,8 +96,6 @@
 		4A2F6F262BA4482200938F2E /* ActionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsInteractor.swift; sourceTree = "<group>"; };
 		4A2F6F282BA4482700938F2E /* ActionsInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsInteractorInput.swift; sourceTree = "<group>"; };
 		4A2F6F2A2BA44B2600938F2E /* ActionsInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsInteractorOutput.swift; sourceTree = "<group>"; };
-		4A2F6F2C2BA59EF700938F2E /* TimerModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModuleInput.swift; sourceTree = "<group>"; };
-		4A2F6F2E2BA59F7D00938F2E /* ActionsModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsModuleInput.swift; sourceTree = "<group>"; };
 		4A2F6F302BA5D1E900938F2E /* TimerInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerInteractorInput.swift; sourceTree = "<group>"; };
 		4A2F6F322BA5D20600938F2E /* TimerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerInteractor.swift; sourceTree = "<group>"; };
 		4A2F6F352BA5D24800938F2E /* ServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceImpl.swift; sourceTree = "<group>"; };
@@ -100,9 +107,17 @@
 		4A2F6F422BA9A51800938F2E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		4A2F6F442BA9A58E00938F2E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		4A2F6F462BAB135700938F2E /* UITextField+ColorsAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+ColorsAnimation.swift"; sourceTree = "<group>"; };
-		4A2F6F482BAB403100938F2E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		4A2F6F4A2BAB486500938F2E /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
 		4A2F6F4C2BAC505800938F2E /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		4A2F70782BB6D1EA00938F2E /* AnalyticsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsInteractor.swift; sourceTree = "<group>"; };
+		4A2F707A2BB6D46A00938F2E /* AnalyticsInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsInteractorOutput.swift; sourceTree = "<group>"; };
+		4A2F707C2BB6D47500938F2E /* AnalyticsInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsInteractorInput.swift; sourceTree = "<group>"; };
+		4A2F707E2BB6D4FA00938F2E /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
+		4A2F70802BB8025700938F2E /* UIColor+Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Generator.swift"; sourceTree = "<group>"; };
+		4A2F70842BB8173100938F2E /* AnalyticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTableViewCell.swift; sourceTree = "<group>"; };
+		4A2F70862BB8173D00938F2E /* AnalyticsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTableViewDataSource.swift; sourceTree = "<group>"; };
+		4A2F70892BB8174900938F2E /* AnalyticsTableViewDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTableViewDataSourceImpl.swift; sourceTree = "<group>"; };
+		4A2F708B2BB822E500938F2E /* String+Seconds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Seconds.swift"; sourceTree = "<group>"; };
 		4A3A7B9E2B94C76D004C60D2 /* timetracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +127,7 @@
 		4A3A7BB62B94C819004C60D2 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		4A3A7BB82B94CAB0004C60D2 /* GoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
 		4A3A7BBA2B94CABF004C60D2 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
+		AB67AC7BEF27BA3DA2CD7BB4 /* Pods-timetracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-timetracker.debug.xcconfig"; path = "Target Support Files/Pods-timetracker/Pods-timetracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,16 +135,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E207C20AF56090F54A4B6C /* libPods-timetracker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0251EE1C2665869619E90827 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB67AC7BEF27BA3DA2CD7BB4 /* Pods-timetracker.debug.xcconfig */,
+				0DB46BBFB271A972F214B2DE /* Pods-timetracker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		4A2F6EE02BA0EF8800938F2E /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
 				4A2F6EE82BA0F07100938F2E /* Assembly */,
+				4A2F70772BB6D18D00938F2E /* Interactor */,
 				4A2F6F002BA0F3E300938F2E /* Presenter */,
 				4A2F6EE52BA0F01100938F2E /* View */,
 			);
@@ -179,6 +206,8 @@
 		4A2F6EE52BA0F01100938F2E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4A2F70822BB816A900938F2E /* TableViewCell */,
+				4A2F70832BB816B100938F2E /* TableViewDataSource */,
 				4A3A7BBA2B94CABF004C60D2 /* AnalyticsViewController.swift */,
 				4A2F6EFA2BA0F3AF00938F2E /* AnalyticsViewOutput.swift */,
 				4A2F6EFC2BA0F3C100938F2E /* AnalyticsViewInput.swift */,
@@ -214,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				4A2F6EEB2BA0F17500938F2E /* TimerPresenter.swift */,
-				4A2F6F2C2BA59EF700938F2E /* TimerModuleInput.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -222,8 +250,8 @@
 		4A2F6EEA2BA0F16600938F2E /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				4A2F6F302BA5D1E900938F2E /* TimerInteractorInput.swift */,
 				4A2F6F322BA5D20600938F2E /* TimerInteractor.swift */,
+				4A2F6F302BA5D1E900938F2E /* TimerInteractorInput.swift */,
 				4A2F6F372BA5D28B00938F2E /* TimerInteractorOutput.swift */,
 			);
 			path = Interactor;
@@ -252,7 +280,9 @@
 				4A2F6F462BAB135700938F2E /* UITextField+ColorsAnimation.swift */,
 				4A2F6F392BA5D9C300938F2E /* String+Types.swift */,
 				4A2F6F402BA73DCD00938F2E /* String+Normilized.swift */,
+				4A2F708B2BB822E500938F2E /* String+Seconds.swift */,
 				4A2F6F4A2BAB486500938F2E /* Date+Format.swift */,
+				4A2F70802BB8025700938F2E /* UIColor+Generator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -305,7 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				4A2F6F182BA35D7900938F2E /* ActionsPresenter.swift */,
-				4A2F6F2E2BA59F7D00938F2E /* ActionsModuleInput.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -360,10 +389,37 @@
 			children = (
 				4A2F6F3E2BA715FA00938F2E /* Action.swift */,
 				4A2F6F422BA9A51800938F2E /* Project.swift */,
-				4A2F6F482BAB403100938F2E /* Response.swift */,
+				4A2F707E2BB6D4FA00938F2E /* Analytics.swift */,
 				4A2F6F4C2BAC505800938F2E /* Requests.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		4A2F70772BB6D18D00938F2E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F70782BB6D1EA00938F2E /* AnalyticsInteractor.swift */,
+				4A2F707C2BB6D47500938F2E /* AnalyticsInteractorInput.swift */,
+				4A2F707A2BB6D46A00938F2E /* AnalyticsInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		4A2F70822BB816A900938F2E /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F70842BB8173100938F2E /* AnalyticsTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		4A2F70832BB816B100938F2E /* TableViewDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F70862BB8173D00938F2E /* AnalyticsTableViewDataSource.swift */,
+				4A2F70892BB8174900938F2E /* AnalyticsTableViewDataSourceImpl.swift */,
+			);
+			path = TableViewDataSource;
 			sourceTree = "<group>";
 		};
 		4A3A7B952B94C76D004C60D2 = {
@@ -371,6 +427,8 @@
 			children = (
 				4A3A7BA02B94C76D004C60D2 /* timetracker */,
 				4A3A7B9F2B94C76D004C60D2 /* Products */,
+				0251EE1C2665869619E90827 /* Pods */,
+				83BD74EBE6E1E8D1D24EC8C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -407,6 +465,14 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		83BD74EBE6E1E8D1D24EC8C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				386EB9625270017DF7546243 /* libPods-timetracker.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -414,9 +480,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A3A7BB22B94C76F004C60D2 /* Build configuration list for PBXNativeTarget "timetracker" */;
 			buildPhases = (
+				B3E799D520D27DF5F0BFF23F /* [CP] Check Pods Manifest.lock */,
 				4A3A7B9A2B94C76D004C60D2 /* Sources */,
 				4A3A7B9B2B94C76D004C60D2 /* Frameworks */,
 				4A3A7B9C2B94C76D004C60D2 /* Resources */,
+				F07DE10A19CD57517911B6DE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -471,6 +539,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B3E799D520D27DF5F0BFF23F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-timetracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F07DE10A19CD57517911B6DE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-timetracker/Pods-timetracker-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-timetracker/Pods-timetracker-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-timetracker/Pods-timetracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4A3A7B9A2B94C76D004C60D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -481,10 +591,12 @@
 				4A2F6F232BA3624E00938F2E /* ActionsViewInput.swift in Sources */,
 				4A3A7BA62B94C76D004C60D2 /* TimerViewController.swift in Sources */,
 				4A2F6F472BAB135700938F2E /* UITextField+ColorsAnimation.swift in Sources */,
+				4A2F708A2BB8174900938F2E /* AnalyticsTableViewDataSourceImpl.swift in Sources */,
 				4A2F6EFF2BA0F3D200938F2E /* AnalyticsPresenter.swift in Sources */,
-				4A2F6F492BAB403100938F2E /* Response.swift in Sources */,
+				4A2F70792BB6D1EA00938F2E /* AnalyticsInteractor.swift in Sources */,
 				4A2F6F312BA5D1E900938F2E /* TimerInteractorInput.swift in Sources */,
 				4A2F6EF72BA0F31C00938F2E /* GoalsPresenter.swift in Sources */,
+				4A2F70812BB8025700938F2E /* UIColor+Generator.swift in Sources */,
 				4A2F6F432BA9A51800938F2E /* Project.swift in Sources */,
 				4A3A7BA22B94C76D004C60D2 /* AppDelegate.swift in Sources */,
 				4A2F6F192BA35D7900938F2E /* ActionsPresenter.swift in Sources */,
@@ -499,12 +611,14 @@
 				4A3A7BA42B94C76D004C60D2 /* SceneDelegate.swift in Sources */,
 				4A2F6F3C2BA5E8F300938F2E /* HighlightedLabel.swift in Sources */,
 				4A2F6F022BA0F4AB00938F2E /* AnalyticsModuleAssembly.swift in Sources */,
+				4A2F708C2BB822E500938F2E /* String+Seconds.swift in Sources */,
 				4A2F6EF92BA0F33A00938F2E /* GoalsModuleAssembly.swift in Sources */,
 				4A2F6EFB2BA0F3AF00938F2E /* AnalyticsViewOutput.swift in Sources */,
 				4A2F6F3A2BA5D9C300938F2E /* String+Types.swift in Sources */,
 				4A2F6F1B2BA35D9100938F2E /* ActionsViewOutput.swift in Sources */,
+				4A2F707F2BB6D4FA00938F2E /* Analytics.swift in Sources */,
 				4A3A7BB92B94CAB0004C60D2 /* GoalsViewController.swift in Sources */,
-				4A2F6F2F2BA59F7D00938F2E /* ActionsModuleInput.swift in Sources */,
+				4A2F70852BB8173100938F2E /* AnalyticsTableViewCell.swift in Sources */,
 				4A2F6F3F2BA715FA00938F2E /* Action.swift in Sources */,
 				4A2F6F292BA4482700938F2E /* ActionsInteractorInput.swift in Sources */,
 				4A2F6F4B2BAB486500938F2E /* Date+Format.swift in Sources */,
@@ -515,16 +629,18 @@
 				4A2F6F452BA9A58E00938F2E /* Service.swift in Sources */,
 				4A2F6EF42BA0F2F800938F2E /* GoalsViewInput.swift in Sources */,
 				4A2F6EEE2BA0F1C700938F2E /* TimerViewOutput.swift in Sources */,
+				4A2F707D2BB6D47500938F2E /* AnalyticsInteractorInput.swift in Sources */,
 				4A2F6F362BA5D24800938F2E /* ServiceImpl.swift in Sources */,
 				4A2F6F052BA1012300938F2E /* UIKit+AutoLayout.swift in Sources */,
 				4A2F6F252BA3630500938F2E /* AssemblyFactory.swift in Sources */,
 				4A2F6F412BA73DCD00938F2E /* String+Normilized.swift in Sources */,
 				4A3A7BBB2B94CABF004C60D2 /* AnalyticsViewController.swift in Sources */,
+				4A2F70872BB8173D00938F2E /* AnalyticsTableViewDataSource.swift in Sources */,
 				4A2F6F272BA4482200938F2E /* ActionsInteractor.swift in Sources */,
 				4A2F6F2B2BA44B2600938F2E /* ActionsInteractorOutput.swift in Sources */,
 				4A2F6F0F2BA3532800938F2E /* ActionsTableViewCell.swift in Sources */,
-				4A2F6F2D2BA59EF700938F2E /* TimerModuleInput.swift in Sources */,
 				4A2F6EF02BA0F20000938F2E /* TimerViewInput.swift in Sources */,
+				4A2F707B2BB6D46B00938F2E /* AnalyticsInteractorOutput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,7 +684,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -631,7 +747,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -652,6 +768,7 @@
 		};
 		4A3A7BB32B94C76F004C60D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB67AC7BEF27BA3DA2CD7BB4 /* Pods-timetracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -679,6 +796,7 @@
 		};
 		4A3A7BB42B94C76F004C60D2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DB46BBFB271A972F214B2DE /* Pods-timetracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

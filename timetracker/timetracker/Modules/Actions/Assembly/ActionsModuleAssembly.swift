@@ -9,7 +9,7 @@ import UIKit
 
 final class ActionsModuleAssembly {
 
-    func module() -> (view: UIViewController, moduleInput: ActionsModuleInput) {
+    func module() -> (view: UIViewController, presenter: ActionsPresenter) {
         let interactor = ActionsInteractor()
         
         let presenter = ActionsPresenter(interactor: interactor)
@@ -26,7 +26,7 @@ final class ActionsModuleAssembly {
 
         return (
             view: controller,
-            moduleInput: presenter
+            presenter: presenter
         )
     }
 }

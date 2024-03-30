@@ -53,5 +53,6 @@ class NavigationViewController: UITabBarController {
         tabBar.layer.borderWidth = 0.5
         tabBar.tintColor = .black
         tabBar.unselectedItemTintColor = .lightGray
+        tabBar.backgroundColor = .white
     }
 }
