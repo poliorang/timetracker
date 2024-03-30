@@ -18,7 +18,7 @@ final class AnalyticsTableViewCell: UITableViewCell {
     
     private weak var delegate: AnalyticsTableViewDataSourceDelegate?
 
-    private var project: ProjectModel?
+    private var analytic: AnalyticModel?
     
     private var colorImageView: UIImageView
     private var projectLabel: UILabel
@@ -46,10 +46,10 @@ final class AnalyticsTableViewCell: UITableViewCell {
     }
     
     public func configure(
-        project: ProjectModel,
+        analytic: AnalyticModel,
         delegate: AnalyticsTableViewDataSourceDelegate?
     ) {
-        self.project = project
+        self.analytic = analytic
         self.delegate = delegate
     }
 
@@ -71,12 +71,6 @@ final class AnalyticsTableViewCell: UITableViewCell {
             colorImageView.heightAnchor.constraint(equalToConstant: 12),
         ])
         
-        contentView.addSubview(projectLabel)
-        NSLayoutConstraint.activate([
-            projectLabel.leftAnchor.constraint(equalTo: colorImageView.rightAnchor, constant: 8),
-            projectLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-        ])
-        
         contentView.addSubview(timeDurationLabel)
         NSLayoutConstraint.activate([
             timeDurationLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12),
@@ -88,23 +82,30 @@ final class AnalyticsTableViewCell: UITableViewCell {
             percentDurationLabel.rightAnchor.constraint(equalTo: timeDurationLabel.leftAnchor, constant: -12),
             percentDurationLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
+        
+        contentView.addSubview(projectLabel)
+        NSLayoutConstraint.activate([
+            projectLabel.leftAnchor.constraint(equalTo: colorImageView.rightAnchor, constant: 8),
+            projectLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            projectLabel.rightAnchor.constraint(lessThanOrEqualTo: percentDurationLabel.leftAnchor, constant: -8),
+        ])
     }
 
     private func configureView() {
         colorImageView.image = UIImage(systemName: "circle.fill")
-        colorImageView.tintColor = project?.color
+        colorImageView.tintColor = analytic?.color
         colorImageView.contentMode = .scaleAspectFit
         colorImageView.sizeToFit()
 
-        projectLabel.text = project?.name
+        projectLabel.text = analytic?.name
         projectLabel.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
         projectLabel.sizeToFit()
         
-        percentDurationLabel.text = "\(Double(round(100 * (project?.percentDuration ?? 0)) / 100))%"
+        percentDurationLabel.text = "\(Double(round(100 * (analytic?.percentDuration ?? 0)) / 100))%"
         percentDurationLabel.font = UIFont.boldSystemFont(ofSize: Constants.smallFontSize)
         percentDurationLabel.textColor = .systemGray2
         
-        timeDurationLabel.text = String.timeString(fromSeconds: project?.durationInSeconds)
+        timeDurationLabel.text = String.timeString(fromSeconds: analytic?.durationInSeconds)
         timeDurationLabel.font = UIFont.boldSystemFont(ofSize: Constants.smallFontSize)
         timeDurationLabel.textColor = .systemGray2
     }

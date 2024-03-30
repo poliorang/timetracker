@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AnalyticsTableViewDataSourceDelegate: AnyObject {
-//    func setSelectedAction(action: ActionProject?)
+    func openDetailAnalytics(id: Int)
 }
 
 
@@ -21,7 +21,7 @@ final class AnalyticsTableViewDataSourceImpl: NSObject {
         static let cellIdentifier: String = "AnalyticsTableViewCell"
     }
 
-    private var projects: [ProjectModel]?
+    private var analytics: [AnalyticModel]?
     private weak var tableView: UITableView?
     private weak var delegate: AnalyticsTableViewDataSourceDelegate?
 
@@ -34,11 +34,11 @@ final class AnalyticsTableViewDataSourceImpl: NSObject {
 
 extension AnalyticsTableViewDataSourceImpl: AnalyticsTableViewDataSource {
 
-    func update(with projects: [ProjectModel],
+    func update(with analytics: [AnalyticModel],
                 tableView: UITableView,
                 delegate: AnalyticsTableViewDataSourceDelegate
     ) {
-        self.projects = projects
+        self.analytics = analytics
         self.tableView = tableView
         self.delegate = delegate
 
@@ -48,19 +48,19 @@ extension AnalyticsTableViewDataSourceImpl: AnalyticsTableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return projects?.count ?? 0
+        return analytics?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as? AnalyticsTableViewCell,
-            let projects = projects else {
+            let analytics = analytics else {
             assertionFailure("Failed to set tableview cell")
             return UITableViewCell()
         }
 
-        let project = projects[indexPath.row]
+        let analytic = analytics[indexPath.row]
         cell.configure(
-            project: project,
+            analytic: analytic,
             delegate: delegate
         )
         cell.setUpUI()
@@ -79,7 +79,8 @@ extension AnalyticsTableViewDataSourceImpl: AnalyticsTableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard let action = actions?[indexPath.row] else { return }
-//        delegate?.setSelectedAction(action: ActionProject(action.name, action.projectName))
+        guard let analytic = analytics?[indexPath.row],
+              let id = analytic.id else { return }
+        delegate?.openDetailAnalytics(id: id)
     }
 }

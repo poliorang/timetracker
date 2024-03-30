@@ -15,17 +15,29 @@ final class AnalyticsInteractor {
 }
 
 extension AnalyticsInteractor: AnalyticsInteractorInput {
-    func getAnalytics(completion: @escaping (AnalyticsModel?) -> Void) {
+    func getAnalytics(id: Int?, completion: @escaping ([AnalyticModel]) -> Void) {
         Task {
-            guard let data = await service.getDataFromServer(type: .statistics) else {
+            let requestType: GetRequestArgs = id == nil ? .statistics : .detailStatistics(id!)
+
+            guard let data = await service.getDataFromServer(type: requestType) else {
                 print("Failed | get statistics")
-                completion(nil)
+                completion([])
                 return
             }
             
-            var analytics: AnalyticsModel?
+            var analytics: [AnalyticModel] = []
+            
             do {
-                analytics = try JSONDecoder().decode(AnalyticsModel.self, from: data)
+                switch requestType {
+                case .statistics:
+                    let data = try JSONDecoder().decode(AnalyticsProjectsModel.self, from: data)
+                    analytics = data.projects
+                case .detailStatistics(id):
+                    let data = try JSONDecoder().decode(AnalyticsActionsModel.self, from: data)
+                    analytics = data.entries
+                default:
+                    break
+                }
             } catch {
                 print("Failed | decode statistics")
             }

@@ -8,16 +8,21 @@
 import UIKit
 
 final class AnalyticsPresenter {
-
+    
     weak var view: AnalyticsViewInput?
-
+    public var id: Int? = nil {
+        didSet {
+            setAnalytics()
+        }
+    }
+    
     // MARK: - Private properties
     
     private enum Constants {
         
     }
     
-    private var analytics: AnalyticsModel?
+    private var analytics: AnalyticsProjectsModel?
     
     private let interactor: AnalyticsInteractorInput
     private let assemblyFactory = AssemblyFactoryImpl.shared
@@ -26,34 +31,37 @@ final class AnalyticsPresenter {
 
     init(interactor: AnalyticsInteractorInput) {
         self.interactor = interactor
-        setAnalytics()
     }
     
     // MARK: - Private functions
 
-    private func generateColors(data: inout AnalyticsModel) {
-        for i in 0..<data.projects.count {
-            data.projects[i].color = UIColor.customColors[i % UIColor.customColors.count]
+    private func generateColors(data: inout [AnalyticModel]) {
+        for i in 0..<data.count {
+            data[i].color = UIColor.customColors[i % UIColor.customColors.count]
         }
     }
 }
 
 extension AnalyticsPresenter: AnalyticsViewOutput {
     func setAnalytics() {
-        interactor.getAnalytics { [weak self] data in
-            guard var data = data else {
-                return
-            }
+        
+        interactor.getAnalytics(id: id) { [weak self] data in
+            var data = data
             self?.generateColors(data: &data)
             DispatchQueue.main.async {
-                self?.view?.configureChart(data: data.projects)
-                self?.view?.configureTableView(data: data.projects)
+                self?.view?.configureChart(data: data)
+                self?.view?.configureTableView(data: data)
             }
         }
+    }
+    
+    func openDetailAnalytics(id: Int) {
+        let childModule = assemblyFactory.detailAnalyticsModuleAssembly().module()
+        childModule.presenter.id = id
+        view?.present(module: childModule.view)
     }
 }
 
 extension AnalyticsPresenter: AnalyticsInteractorOutput {
     
 }
-

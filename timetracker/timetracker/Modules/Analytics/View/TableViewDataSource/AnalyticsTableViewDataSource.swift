@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AnalyticsTableViewDataSource: UITableViewDataSource, UITableViewDelegate {
-    func update(with projects: [ProjectModel],
+    func update(with analytics: [AnalyticModel],
                 tableView: UITableView,
                 delegate: AnalyticsTableViewDataSourceDelegate
     )

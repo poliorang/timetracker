@@ -13,6 +13,8 @@ protocol AssemblyFactory {
     
     func analyticsModuleAssembly() -> AnalyticsModuleAssembly
     
+    func detailAnalyticsModuleAssembly() -> AnalyticsModuleAssembly
+    
     func actionsModuleAssembly() -> ActionsModuleAssembly
 }
 
@@ -25,6 +27,7 @@ final class AssemblyFactoryImpl {
     private let _timerModuleAssembly = TimerModuleAssembly()
     private let _goalsModuleAssembly = GoalsModuleAssembly()
     private let _analyticsModuleAssembly = AnalyticsModuleAssembly()
+    private let _detaiAnalyticsModuleAssembly = AnalyticsModuleAssembly()
     private let _actionsModuleAssembly = ActionsModuleAssembly()
     
     // MARK: - Init
@@ -43,6 +46,10 @@ extension AssemblyFactoryImpl: AssemblyFactory {
     
     func analyticsModuleAssembly() -> AnalyticsModuleAssembly {
         return _analyticsModuleAssembly
+    }
+    
+    func detailAnalyticsModuleAssembly() -> AnalyticsModuleAssembly {
+        return _detaiAnalyticsModuleAssembly
     }
     
     func actionsModuleAssembly() -> ActionsModuleAssembly {

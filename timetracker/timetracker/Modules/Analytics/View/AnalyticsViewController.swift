@@ -73,6 +73,7 @@ final class AnalyticsViewController: UIViewController {
     }
     
     private func setUpAppearance() {
+        view.backgroundColor = .white
         tableView.register(AnalyticsTableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
         tableView.delegate = tableViewDataSource
         tableView.dataSource = tableViewDataSource
@@ -82,7 +83,7 @@ final class AnalyticsViewController: UIViewController {
 
 extension AnalyticsViewController: AnalyticsViewInput {
     
-    func configureChart(data: [ProjectModel]) {
+    func configureChart(data: [AnalyticModel]) {
         var chartData: [PieChartDataEntry] = []
         var colors: [UIColor] = []
         for project in data {
@@ -102,15 +103,22 @@ extension AnalyticsViewController: AnalyticsViewInput {
         pieChartView.legend.enabled = false
     }
     
-    func configureTableView(data: [ProjectModel]) {
+    func configureTableView(data: [AnalyticModel]) {
         tableViewDataSource.update(
             with: data,
             tableView: tableView,
             delegate: self
         )
     }
+    
+    func present(module: UIViewController) {
+        guard let childViewController = module as? AnalyticsViewController else { return }
+        present(childViewController, animated: true)
+    }
 }
 
 extension AnalyticsViewController: AnalyticsTableViewDataSourceDelegate {
-    
+    func openDetailAnalytics(id: Int) {
+        output.openDetailAnalytics(id: id)
+    }
 }

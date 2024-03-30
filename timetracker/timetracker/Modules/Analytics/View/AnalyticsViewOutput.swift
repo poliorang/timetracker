@@ -7,4 +7,6 @@
 
 protocol AnalyticsViewOutput: AnyObject {
     func setAnalytics()
+    
+    func openDetailAnalytics(id: Int)
 }
