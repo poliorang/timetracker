@@ -12,5 +12,9 @@ protocol AnalyticsViewInput: AnyObject {
     
     func configureTableView(data: [AnalyticModel])
     
+    func configureProjectName(_ name: String)
+    
+    func configureDates(start: String, finish: String)
+    
     func present(module: UIViewController)
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol Service: AnyObject {
-    func getDataFromServer(type: GetRequestArgs) async -> Data?
+    func getDataFromServer(type: GetRequestArgs, queryItem: AnalyticsParams?) async -> Data?
     
     func postDataToServer(object: Encodable, type: PostRequestArgs) async -> Data?
 }

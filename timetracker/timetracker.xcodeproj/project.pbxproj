@@ -57,6 +57,8 @@
 		4A2F70872BB8173D00938F2E /* AnalyticsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70862BB8173D00938F2E /* AnalyticsTableViewDataSource.swift */; };
 		4A2F708A2BB8174900938F2E /* AnalyticsTableViewDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70892BB8174900938F2E /* AnalyticsTableViewDataSourceImpl.swift */; };
 		4A2F708C2BB822E500938F2E /* String+Seconds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F708B2BB822E500938F2E /* String+Seconds.swift */; };
+		4A2F708E2BB8AE8100938F2E /* AnalyticsModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F708D2BB8AE8000938F2E /* AnalyticsModuleInput.swift */; };
+		4A2F70902BB8B47500938F2E /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F708F2BB8B47500938F2E /* DateTextField.swift */; };
 		4A3A7BA22B94C76D004C60D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */; };
 		4A3A7BA42B94C76D004C60D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */; };
 		4A3A7BA62B94C76D004C60D2 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA52B94C76D004C60D2 /* TimerViewController.swift */; };
@@ -118,6 +120,8 @@
 		4A2F70862BB8173D00938F2E /* AnalyticsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTableViewDataSource.swift; sourceTree = "<group>"; };
 		4A2F70892BB8174900938F2E /* AnalyticsTableViewDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTableViewDataSourceImpl.swift; sourceTree = "<group>"; };
 		4A2F708B2BB822E500938F2E /* String+Seconds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Seconds.swift"; sourceTree = "<group>"; };
+		4A2F708D2BB8AE8000938F2E /* AnalyticsModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsModuleInput.swift; sourceTree = "<group>"; };
+		4A2F708F2BB8B47500938F2E /* DateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
 		4A3A7B9E2B94C76D004C60D2 /* timetracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				4A2F6EFE2BA0F3D200938F2E /* AnalyticsPresenter.swift */,
+				4A2F708D2BB8AE8000938F2E /* AnalyticsModuleInput.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 				4A2F6F082BA1B90D00938F2E /* BasicTextField.swift */,
 				4A2F6F0A2BA1BC9000938F2E /* TabControl.swift */,
 				4A2F6F3B2BA5E8F300938F2E /* HighlightedLabel.swift */,
+				4A2F708F2BB8B47500938F2E /* DateTextField.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -613,11 +619,13 @@
 				4A2F6F022BA0F4AB00938F2E /* AnalyticsModuleAssembly.swift in Sources */,
 				4A2F708C2BB822E500938F2E /* String+Seconds.swift in Sources */,
 				4A2F6EF92BA0F33A00938F2E /* GoalsModuleAssembly.swift in Sources */,
+				4A2F708E2BB8AE8100938F2E /* AnalyticsModuleInput.swift in Sources */,
 				4A2F6EFB2BA0F3AF00938F2E /* AnalyticsViewOutput.swift in Sources */,
 				4A2F6F3A2BA5D9C300938F2E /* String+Types.swift in Sources */,
 				4A2F6F1B2BA35D9100938F2E /* ActionsViewOutput.swift in Sources */,
 				4A2F707F2BB6D4FA00938F2E /* Analytics.swift in Sources */,
 				4A3A7BB92B94CAB0004C60D2 /* GoalsViewController.swift in Sources */,
+				4A2F70902BB8B47500938F2E /* DateTextField.swift in Sources */,
 				4A2F70852BB8173100938F2E /* AnalyticsTableViewCell.swift in Sources */,
 				4A2F6F3F2BA715FA00938F2E /* Action.swift in Sources */,
 				4A2F6F292BA4482700938F2E /* ActionsInteractorInput.swift in Sources */,

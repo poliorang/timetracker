@@ -8,5 +8,7 @@
 protocol AnalyticsViewOutput: AnyObject {
     func setAnalytics()
     
-    func openDetailAnalytics(id: Int)
+    func openDetailAnalytics(id: Int, projectName: String)
+    
+    func setDatesAndAnalytics(start: String, finish: String) 
 }

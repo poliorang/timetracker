@@ -6,5 +6,5 @@
 //
 
 protocol AnalyticsInteractorInput: AnyObject {
-    func getAnalytics(id: Int?, completion: @escaping ([AnalyticModel]) -> Void)
+    func getAnalytics(analyticsParams: AnalyticsParams?, completion: @escaping ([AnalyticModel]) -> Void)
 }

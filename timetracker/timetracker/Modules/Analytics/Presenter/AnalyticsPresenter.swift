@@ -12,7 +12,7 @@ final class AnalyticsPresenter {
     weak var view: AnalyticsViewInput?
     public var id: Int? = nil {
         didSet {
-            setAnalytics()
+            configureDates()
         }
     }
     
@@ -26,6 +26,9 @@ final class AnalyticsPresenter {
     
     private let interactor: AnalyticsInteractorInput
     private let assemblyFactory = AssemblyFactoryImpl.shared
+    
+    private var startDate: Date?
+    private var finishDate: Date?
 
     // MARK: - Init
 
@@ -40,12 +43,36 @@ final class AnalyticsPresenter {
             data[i].color = UIColor.customColors[i % UIColor.customColors.count]
         }
     }
-}
-
-extension AnalyticsPresenter: AnalyticsViewOutput {
-    func setAnalytics() {
+    
+    private func configureDates() {
+        if startDate != nil && finishDate != nil {
+            return
+        }
         
-        interactor.getAnalytics(id: id) { [weak self] data in
+        let calendar = Calendar.current
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yy"
+
+        if let tomorrow = calendar.date(byAdding: .day, value: 1, to: Date()),
+           let oneYearAgo = calendar.date(byAdding: .year, value: -1, to: Date()) {
+            
+            startDate = oneYearAgo
+            finishDate = tomorrow
+            view?.configureDates(start: dateFormatter.string(from: oneYearAgo),
+                                 finish: dateFormatter.string(from: tomorrow)
+            )
+            
+            getAnalytics()
+        }
+    }
+    
+    private func getAnalytics() {
+        guard let startDate = startDate, let finishDate = finishDate else {
+            return
+        }
+        
+        let analyticsParams = AnalyticsParams(id: id, startDate: startDate, finishDate: finishDate)
+        interactor.getAnalytics(analyticsParams: analyticsParams) { [weak self] data in
             var data = data
             self?.generateColors(data: &data)
             DispatchQueue.main.async {
@@ -54,14 +81,38 @@ extension AnalyticsPresenter: AnalyticsViewOutput {
             }
         }
     }
+}
+
+extension AnalyticsPresenter: AnalyticsViewOutput {
+    func setAnalytics() {
+        if startDate == nil || finishDate == nil {
+            configureDates()
+            return
+        }
+        
+        getAnalytics()
+    }
     
-    func openDetailAnalytics(id: Int) {
+    func openDetailAnalytics(id: Int, projectName: String) {
         let childModule = assemblyFactory.detailAnalyticsModuleAssembly().module()
         childModule.presenter.id = id
+        childModule.presenter.configureProjectName(projectName)
         view?.present(module: childModule.view)
+    }
+    
+    func setDatesAndAnalytics(start: String, finish: String) {
+        startDate = start.toDate()
+        finishDate = finish.toDate()
+        setAnalytics()
     }
 }
 
 extension AnalyticsPresenter: AnalyticsInteractorOutput {
     
+}
+
+extension AnalyticsPresenter: AnalyticsModuleInput {
+    func configureProjectName(_ name: String) {
+        view?.configureProjectName(name)
+    }
 }

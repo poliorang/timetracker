@@ -15,7 +15,7 @@ final class ActionsInteractor {
 extension ActionsInteractor: ActionsInteractorInput {
     func getActions(completion: @escaping ([ActionModel]) -> Void) {
         Task {
-            guard let data = await service.getDataFromServer(type: .action) else {
+            guard let data = await service.getDataFromServer(type: .action, queryItem: nil) else {
                 print("Failed | get actions")
                 completion([])
                 return

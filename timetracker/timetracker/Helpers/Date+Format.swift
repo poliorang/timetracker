@@ -14,3 +14,11 @@ extension Date {
         return dateFormatter.string(from: self) + "Z"
     }
 }
+
+extension String {
+    func toDate() -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yy"
+        return dateFormatter.date(from: self)
+    }
+}

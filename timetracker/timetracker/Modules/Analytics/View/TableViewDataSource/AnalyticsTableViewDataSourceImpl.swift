@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AnalyticsTableViewDataSourceDelegate: AnyObject {
-    func openDetailAnalytics(id: Int)
+    func openDetailAnalytics(id: Int, projectName: String)
 }
 
 
@@ -81,6 +81,6 @@ extension AnalyticsTableViewDataSourceImpl: AnalyticsTableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let analytic = analytics?[indexPath.row],
               let id = analytic.id else { return }
-        delegate?.openDetailAnalytics(id: id)
+        delegate?.openDetailAnalytics(id: id, projectName: analytic.name)
     }
 }

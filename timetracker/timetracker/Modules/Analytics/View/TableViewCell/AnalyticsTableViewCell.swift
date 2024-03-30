@@ -110,7 +110,3 @@ final class AnalyticsTableViewCell: UITableViewCell {
         timeDurationLabel.textColor = .systemGray2
     }
 }
-
-
-
-

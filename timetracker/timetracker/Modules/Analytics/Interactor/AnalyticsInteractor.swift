@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct AnalyticsParams {
+    let id: Int?
+    let startDate: Date
+    let finishDate: Date
+}
+
 final class AnalyticsInteractor {
 
     weak var output: AnalyticsInteractorOutput?
@@ -15,11 +21,13 @@ final class AnalyticsInteractor {
 }
 
 extension AnalyticsInteractor: AnalyticsInteractorInput {
-    func getAnalytics(id: Int?, completion: @escaping ([AnalyticModel]) -> Void) {
+    func getAnalytics(analyticsParams: AnalyticsParams?, completion: @escaping ([AnalyticModel]) -> Void) {
         Task {
-            let requestType: GetRequestArgs = id == nil ? .statistics : .detailStatistics(id!)
-
-            guard let data = await service.getDataFromServer(type: requestType) else {
+            let requestType: GetRequestArgs = analyticsParams?.id == nil
+                        ? .statistics
+                        : .detailStatistics(analyticsParams!.id!)
+            print(analyticsParams)
+            guard let data = await service.getDataFromServer(type: requestType, queryItem: analyticsParams) else {
                 print("Failed | get statistics")
                 completion([])
                 return
@@ -32,7 +40,7 @@ extension AnalyticsInteractor: AnalyticsInteractorInput {
                 case .statistics:
                     let data = try JSONDecoder().decode(AnalyticsProjectsModel.self, from: data)
                     analytics = data.projects
-                case .detailStatistics(id):
+                case .detailStatistics(analyticsParams?.id):
                     let data = try JSONDecoder().decode(AnalyticsActionsModel.self, from: data)
                     analytics = data.entries
                 default:
