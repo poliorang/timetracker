@@ -11,6 +11,8 @@ protocol AssemblyFactory {
     
     func goalsModuleAssembly() -> GoalsModuleAssembly
     
+    func createGoalModuleAssembly() -> CreateGoalModuleAssembly
+    
     func analyticsModuleAssembly() -> AnalyticsModuleAssembly
     
     func detailAnalyticsModuleAssembly() -> AnalyticsModuleAssembly
@@ -26,6 +28,7 @@ final class AssemblyFactoryImpl {
 
     private let _timerModuleAssembly = TimerModuleAssembly()
     private let _goalsModuleAssembly = GoalsModuleAssembly()
+    private let _createGoalModuleAssembly = CreateGoalModuleAssembly()
     private let _analyticsModuleAssembly = AnalyticsModuleAssembly()
     private let _detaiAnalyticsModuleAssembly = AnalyticsModuleAssembly()
     private let _actionsModuleAssembly = ActionsModuleAssembly()
@@ -42,6 +45,10 @@ extension AssemblyFactoryImpl: AssemblyFactory {
     
     func goalsModuleAssembly() -> GoalsModuleAssembly {
         return _goalsModuleAssembly
+    }
+    
+    func createGoalModuleAssembly() -> CreateGoalModuleAssembly {
+        return _createGoalModuleAssembly
     }
     
     func analyticsModuleAssembly() -> AnalyticsModuleAssembly {

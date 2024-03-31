@@ -17,13 +17,8 @@ final class AnalyticsPresenter {
     }
     
     // MARK: - Private properties
-    
-    private enum Constants {
-        
-    }
-    
+
     private var analytics: AnalyticsProjectsModel?
-    
     private let interactor: AnalyticsInteractorInput
     private let assemblyFactory = AssemblyFactoryImpl.shared
     

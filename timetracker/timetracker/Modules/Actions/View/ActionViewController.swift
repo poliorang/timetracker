@@ -71,6 +71,7 @@ final class ActionViewController: UIViewController {
     }
     
     private func setUpAppearance() {
+        view.backgroundColor = .white
         emptyLabel.text = Constants.emptyLabelText
         emptyLabel.textColor = .systemGray2
         emptyLabel.textAlignment = .center

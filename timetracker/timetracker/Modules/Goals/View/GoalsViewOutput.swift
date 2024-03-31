@@ -6,4 +6,9 @@
 //
 
 protocol GoalsViewOutput: AnyObject {
+    func setProjects()
+    
+    func setGoalsForProject(projectName: String)
+    
+    func openCreateGoals()
 }
