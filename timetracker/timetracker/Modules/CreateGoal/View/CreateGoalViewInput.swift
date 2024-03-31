@@ -7,6 +7,19 @@
 
 import UIKit
 
+enum CreateGoalDataType {
+    case description
+    case project
+    case duration
+    case startDate
+    case finishDate
+    
+}
+
 protocol CreateGoalViewInput: AnyObject {
     func didGetProjects(projectNames: [Project])
+    
+    func didErrorData(dataType: CreateGoalDataType)
+    
+    func dismiss()
 }

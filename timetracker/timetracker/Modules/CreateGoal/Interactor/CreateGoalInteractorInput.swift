@@ -7,4 +7,8 @@
 
 protocol CreateGoalInteractorInput: AnyObject {
     func getProjects(completion: @escaping ([ProjectModel]) -> Void)
+    
+    func postGoal(goal: PostGoalModel, completion: @escaping (Int?) -> Void)
+    
+    func postProject(project: PostProjectModel, completion: @escaping (Int?) -> Void)
 }

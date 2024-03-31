@@ -52,6 +52,34 @@ extension CreateGoalInteractor: CreateGoalInteractorInput {
             completion(projects)
         }
     }
+    
+    func postGoal(goal: PostGoalModel, completion: @escaping (Int?) -> Void) {
+        Task {
+            print(goal)
+            guard let data = await service.postDataToServer(object: goal, type: .goal) else {
+                print("Failed | post goal")
+                completion(nil)
+                return
+            }
+            
+            let response = try JSONDecoder().decode(IDModel.self, from: data)
+            completion(response.id)
+        }
+    }
+    
+    func postProject(project: PostProjectModel,
+                     completion: @escaping (Int?) -> Void) {
+        Task {
+            guard let data = await service.postDataToServer(object: project, type: .project) else {
+                print("Failed | post project")
+                completion(nil)
+                return
+            }
+            
+            let response = try JSONDecoder().decode(IDModel.self, from: data)
+            completion(response.id)
+        }
+    }
 }
 
 

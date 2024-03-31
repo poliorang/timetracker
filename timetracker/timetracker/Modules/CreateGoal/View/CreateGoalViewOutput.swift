@@ -7,4 +7,11 @@
 
 protocol CreateGoalViewOutput: AnyObject {
     func setProjects()
+    
+    func createGoal(description: String?,
+                    project: String?,
+                    durationTime: String?,
+                    durationValue: String?,
+                    startDate: String?,
+                    finishDate: String?)
 }

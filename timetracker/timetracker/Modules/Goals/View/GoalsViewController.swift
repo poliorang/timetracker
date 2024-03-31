@@ -48,6 +48,17 @@ class GoalsViewController: UIViewController {
         setUpAppearance()
         output.setProjects()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output.setProjects()
+        if let goal = projectsTabControl.selectedLabel,
+           let text = goal.text {
+            output.setGoalsForProject(projectName: text)
+        }
+    }
+    
+    // MARK: - Private functions
     
     private func setUpUI() {
         view.addSubview(projectsTabControl)

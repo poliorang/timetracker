@@ -13,7 +13,7 @@ final class TabControl: UIScrollView {
     
     public var onTap: ((String) -> Void)?
     
-    private var selectedLabel: UILabel?
+    public var selectedLabel: UILabel?
     
     public var labels: [String] = [] {
         didSet {

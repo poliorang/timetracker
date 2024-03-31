@@ -28,3 +28,19 @@ struct GoalModel: Codable {
         case percent
     }
 }
+
+struct PostGoalModel: Codable {
+    let dateEnd: String
+    let dateStart: String
+    let name: String
+    let projectID: Int
+    let timeSeconds: Int
+    
+    private enum CodingKeys: String, CodingKey {
+        case dateEnd = "date_end"
+        case dateStart = "date_start"
+        case name
+        case projectID = "project_id"
+        case timeSeconds = "time_seconds"
+    }
+}

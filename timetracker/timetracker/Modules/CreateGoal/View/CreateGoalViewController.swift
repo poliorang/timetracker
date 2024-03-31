@@ -129,7 +129,7 @@ class CreateGoalViewController: UIViewController {
         
         plusButton.setImage(UIImage(systemName: "plus"), for: .normal)
         plusButton.tintColor = .systemGray
-//        plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
+        plusButton.addTarget(self, action: #selector(createGoal), for: .touchUpInside)
         
         [descriptionTextField, projectTextField, timeTextField, startDateTextField, finishDateTextField].forEach {
             $0.font = UIFont.boldSystemFont(ofSize: 16)
@@ -139,25 +139,21 @@ class CreateGoalViewController: UIViewController {
         }
         
         descriptionTextField.placeholder = "Description"
-        
         projectTextField.placeholder = "Project"
         projectTextField.autocapitalizationType = .none
+        timeTextField.placeholder = "Time"
+        timeTextField.keyboardType = .numberPad
+        startDateTextField.placeholder = "01.01.01"
+        startDateTextField.isDate = true
+        finishDateTextField.placeholder = "01.01.01"
+        finishDateTextField.isDate = true
         
         projectsTabControl.contentInset.left = 16
         projectsTabControl.onTap = { [weak self] tabText in
             self?.projectTextField.text = tabText
         }
-        
-        timeTextField.placeholder = "Time"
-        
         timeTabControl.contentInset.left = 16
         timeTabControl.labels = Constants.timeLabelConst
-        
-        startDateTextField.placeholder = "01.01.01"
-        startDateTextField.keyboardType = .numberPad
-        
-        finishDateTextField.placeholder = "01.01.01"
-        startDateTextField.keyboardType = .numberPad
     }
     
     private func setupToolbar() {
@@ -166,11 +162,22 @@ class CreateGoalViewController: UIViewController {
         toolbar.items = [flexSpace, flexSpace, doneBtn]
         toolbar.sizeToFit()
         
-        timeTextField.inputAccessoryView = toolbar
+        [timeTextField, startDateTextField, finishDateTextField].forEach({
+            $0.inputAccessoryView = toolbar
+        })
     }
     
-    @objc func dismissKeyboard(){
+    @objc private func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    @objc private func createGoal() {
+        output.createGoal(description: descriptionTextField.text,
+                          project: projectTextField.text,
+                          durationTime: timeTextField.text,
+                          durationValue: timeTabControl.selectedLabel?.text,
+                          startDate: startDateTextField.text,
+                          finishDate: finishDateTextField.text)
     }
 }
 
@@ -178,6 +185,27 @@ extension CreateGoalViewController: CreateGoalViewInput {
     func didGetProjects(projectNames: [Project]) {
         DispatchQueue.main.async { [weak self] in
             self?.projectsTabControl.labels = projectNames
+        }
+    }
+    
+    func didErrorData(dataType: CreateGoalDataType) {
+        switch dataType {
+        case .description:
+            descriptionTextField.flashAlert()
+        case .project:
+            projectTextField.flashAlert()
+        case .duration:
+            timeTextField.flashAlert()
+        case .startDate:
+            startDateTextField.flashAlert()
+        case .finishDate:
+            finishDateTextField.flashAlert()
+        }
+    }
+    
+    func dismiss() {
+        DispatchQueue.main.async { [weak self] in
+            self?.dismiss(animated: true)
         }
     }
 }

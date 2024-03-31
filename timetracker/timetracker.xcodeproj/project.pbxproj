@@ -45,7 +45,7 @@
 		4A2F6F412BA73DCD00938F2E /* String+Normilized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F402BA73DCD00938F2E /* String+Normilized.swift */; };
 		4A2F6F432BA9A51800938F2E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F422BA9A51800938F2E /* Project.swift */; };
 		4A2F6F452BA9A58E00938F2E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F442BA9A58E00938F2E /* Service.swift */; };
-		4A2F6F472BAB135700938F2E /* UITextField+ColorsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F462BAB135700938F2E /* UITextField+ColorsAnimation.swift */; };
+		4A2F6F472BAB135700938F2E /* UITextField+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F462BAB135700938F2E /* UITextField+Alert.swift */; };
 		4A2F6F4B2BAB486500938F2E /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F4A2BAB486500938F2E /* Date+Format.swift */; };
 		4A2F6F4D2BAC505800938F2E /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F6F4C2BAC505800938F2E /* Requests.swift */; };
 		4A2F70792BB6D1EA00938F2E /* AnalyticsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70782BB6D1EA00938F2E /* AnalyticsInteractor.swift */; };
@@ -75,6 +75,7 @@
 		4A2F70B82BB9B31A00938F2E /* CreateGoalInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70B72BB9B31A00938F2E /* CreateGoalInteractorOutput.swift */; };
 		4A2F70BA2BB9B32300938F2E /* CreateGoalInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70B92BB9B32300938F2E /* CreateGoalInteractor.swift */; };
 		4A2F70BC2BB9B33600938F2E /* CreateGoalModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70BB2BB9B33600938F2E /* CreateGoalModuleAssembly.swift */; };
+		4A2F70BE2BBA085A00938F2E /* String+Seconds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70BD2BBA085A00938F2E /* String+Seconds.swift */; };
 		4A3A7BA22B94C76D004C60D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */; };
 		4A3A7BA42B94C76D004C60D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */; };
 		4A3A7BA62B94C76D004C60D2 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA52B94C76D004C60D2 /* TimerViewController.swift */; };
@@ -124,7 +125,7 @@
 		4A2F6F402BA73DCD00938F2E /* String+Normilized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Normilized.swift"; sourceTree = "<group>"; };
 		4A2F6F422BA9A51800938F2E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		4A2F6F442BA9A58E00938F2E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		4A2F6F462BAB135700938F2E /* UITextField+ColorsAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+ColorsAnimation.swift"; sourceTree = "<group>"; };
+		4A2F6F462BAB135700938F2E /* UITextField+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Alert.swift"; sourceTree = "<group>"; };
 		4A2F6F4A2BAB486500938F2E /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
 		4A2F6F4C2BAC505800938F2E /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		4A2F70782BB6D1EA00938F2E /* AnalyticsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsInteractor.swift; sourceTree = "<group>"; };
@@ -154,6 +155,7 @@
 		4A2F70B72BB9B31A00938F2E /* CreateGoalInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalInteractorOutput.swift; sourceTree = "<group>"; };
 		4A2F70B92BB9B32300938F2E /* CreateGoalInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalInteractor.swift; sourceTree = "<group>"; };
 		4A2F70BB2BB9B33600938F2E /* CreateGoalModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalModuleAssembly.swift; sourceTree = "<group>"; };
+		4A2F70BD2BBA085A00938F2E /* String+Seconds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Seconds.swift"; sourceTree = "<group>"; };
 		4A3A7B9E2B94C76D004C60D2 /* timetracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -318,12 +320,13 @@
 			isa = PBXGroup;
 			children = (
 				4A2F6F042BA1012300938F2E /* UIKit+AutoLayout.swift */,
-				4A2F6F462BAB135700938F2E /* UITextField+ColorsAnimation.swift */,
+				4A2F6F462BAB135700938F2E /* UITextField+Alert.swift */,
 				4A2F6F392BA5D9C300938F2E /* String+Types.swift */,
 				4A2F6F402BA73DCD00938F2E /* String+Normilized.swift */,
 				4A2F6F4A2BAB486500938F2E /* Date+Format.swift */,
 				4A2F70802BB8025700938F2E /* UIColor+Generator.swift */,
 				4A2F70A62BB9867B00938F2E /* Int+Seconds.swift */,
+				4A2F70BD2BBA085A00938F2E /* String+Seconds.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -711,7 +714,7 @@
 				4A2F70B42BB9B30500938F2E /* CreateGoalPresenter.swift in Sources */,
 				4A2F6F232BA3624E00938F2E /* ActionsViewInput.swift in Sources */,
 				4A3A7BA62B94C76D004C60D2 /* TimerViewController.swift in Sources */,
-				4A2F6F472BAB135700938F2E /* UITextField+ColorsAnimation.swift in Sources */,
+				4A2F6F472BAB135700938F2E /* UITextField+Alert.swift in Sources */,
 				4A2F708A2BB8174900938F2E /* AnalyticsTableViewDataSourceImpl.swift in Sources */,
 				4A2F6EFF2BA0F3D200938F2E /* AnalyticsPresenter.swift in Sources */,
 				4A2F70B02BB9B2F100938F2E /* CreateGoalViewInput.swift in Sources */,
@@ -732,6 +735,7 @@
 				4A2F6F202BA35EB300938F2E /* ActionsTableViewDataSourceImpl.swift in Sources */,
 				4A2F6EFD2BA0F3C100938F2E /* AnalyticsViewInput.swift in Sources */,
 				4A2F6F172BA35D3500938F2E /* ActionsModuleAssembly.swift in Sources */,
+				4A2F70BE2BBA085A00938F2E /* String+Seconds.swift in Sources */,
 				4A2F6F332BA5D20600938F2E /* TimerInteractor.swift in Sources */,
 				4A2F6EF22BA0F2EF00938F2E /* GoalsViewOutput.swift in Sources */,
 				4A2F6F382BA5D28B00938F2E /* TimerInteractorOutput.swift in Sources */,

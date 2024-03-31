@@ -22,6 +22,7 @@ final class GoalsPresenter {
 
     private var projects = [ProjectModel]()
     private var goals = [GoalModel]()
+    private var id: Int?
 
     // MARK: - Init
 
@@ -42,6 +43,7 @@ final class GoalsPresenter {
 }
 
 extension GoalsPresenter: GoalsViewOutput {
+
     func setProjects() {
         interactor.getProjects { [weak self] projects in
             var projectNames = [Project]()
@@ -61,6 +63,7 @@ extension GoalsPresenter: GoalsViewOutput {
 extension GoalsPresenter: GoalsInteractorOutput {
     func setGoalsForProject(projectName: String) {
         if let project = projects.first(where: { $0.name == projectName } ) {
+            id = project.id
             getGoals(id: project.id)
         }
     }

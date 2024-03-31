@@ -51,7 +51,7 @@ final class ServiceImpl: Service {
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        
+        print(url)
         do {
             let jsonData = try JSONEncoder().encode(object)
             request.httpBody = jsonData
