@@ -17,7 +17,7 @@ final class TimerInteractor {
 extension TimerInteractor: TimerInteractorInput {
     func getProjects(completion: @escaping ([ProjectModel]) -> Void) {
         Task {
-            guard let data = await service.getDataFromServer(type: .project) else {
+            guard let data = await service.getDataFromServer(type: .project, queryItem: nil) else {
                 print("Failed | get projects")
                 completion([])
                 return
@@ -36,7 +36,7 @@ extension TimerInteractor: TimerInteractorInput {
     
     func getActions(completion: @escaping ([ActionModel]) -> Void) {
         Task {
-            guard let data = await service.getDataFromServer(type: .action) else {
+            guard let data = await service.getDataFromServer(type: .action, queryItem: nil) else {
                 print("Failed | get actions")
                 completion([])
                 return

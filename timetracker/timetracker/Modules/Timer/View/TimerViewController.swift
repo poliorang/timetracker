@@ -220,7 +220,7 @@ class TimerViewController: UIViewController {
         projectsTabControl.isHidden = true
         actionsButton.isHidden = true
         
-        output.didStartTime()
+        output.startTime()
         
     }
     
@@ -251,7 +251,7 @@ class TimerViewController: UIViewController {
         actionsButton.alpha = 0
         
         timerLabel.text = ""
-        output.didStopTime()
+        output.stopTime()
         output.сreateActionWithProject(action: actionName, project: projectName)
     }
 
@@ -271,7 +271,7 @@ class TimerViewController: UIViewController {
     @objc private func moveContentWithKeyboard(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
         let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
-        if keyboardFrame?.size.height != nil{
+        if keyboardFrame?.size.height != nil {
             let animationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
             UIView.animate(withDuration: animationDuration, animations: {
                 if !self.keyboardShifted {
@@ -297,7 +297,7 @@ class TimerViewController: UIViewController {
     }
     
     @objc private func openActions() {
-        output.didTapOpenActions()
+        output.openActions()
     }
 
     @objc private func onScreenTap(_ sender: UITapGestureRecognizer? = nil) {
@@ -313,7 +313,7 @@ class TimerViewController: UIViewController {
 
 extension TimerViewController: TimerViewInput {
     
-    func updateTime(time: String) {
+    func didUpdateTime(time: String) {
         timerLabel.text = time
     }
     

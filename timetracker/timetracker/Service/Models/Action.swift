@@ -5,18 +5,34 @@
 //  Created by Polina Egorova on 17.03.2024.
 //
 
-struct ActionModel: Decodable, Hashable {
+struct ActionModel: Codable, Hashable {
     var id: Int
-    var project_id: Int
-    var project_name: String
+    var projectID: Int
+    var projectName: String
     var name: String
-    var time_start: String
-    var time_end: String
+    var timeStart: String
+    var timeEnd: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case projectID = "project_id"
+        case projectName = "project_name"
+        case name
+        case timeStart = "time_start"
+        case timeEnd = "time_end"
+    }
 }
 
-struct PostActionModel: Encodable {
+struct PostActionModel: Codable {
     var name: String
-    var project_id: Int
-    var time_end: String
-    var time_start: String
+    var projectID: Int
+    var timeEnd: String
+    var timeStart: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case projectID = "project_id"
+        case timeEnd = "time_end"
+        case timeStart = "time_start"
+    }
 }

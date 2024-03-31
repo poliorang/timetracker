@@ -21,9 +21,21 @@ final class ServiceImpl: Service {
     
     // MARK: - Functions
     
-    func getDataFromServer(type: GetRequestArgs) async -> Data? {
-        let url = URL(string: url + type.request)!
+    func getDataFromServer(type: GetRequestArgs, queryItem: AnalyticsParams?) async -> Data? {
+        var urlComponents = URLComponents(string: url + type.request)!
+        if let queryItem = queryItem {
+            urlComponents.queryItems = [
+                URLQueryItem(name: "time_start", value: queryItem.startDate.toString(isFinish: false)),
+                URLQueryItem(name: "time_end", value: queryItem.finishDate.toString(isFinish: true))
+            ]
+        }
+        
         do {
+            guard let url = urlComponents.url else {
+                print("Error get url")
+                return nil
+            }
+            print(url)
             let (data, _) = try await URLSession.shared.data(from: url)
             print("Received data: \(data)")
             return data

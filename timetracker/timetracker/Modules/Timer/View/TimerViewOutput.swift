@@ -6,13 +6,13 @@
 //
 
 protocol TimerViewOutput: AnyObject {
-    func didTapOpenActions()
+    func openActions()
     
     func сreateActionWithProject(action: Action, project: Project)
     
     func setProjects()
     
-    func didStartTime()
+    func startTime()
     
-    func didStopTime()
+    func stopTime()
 }

@@ -38,7 +38,7 @@ final class TimerPresenter {
         let minutes = (seconds % 3600) / 60
         let secs = seconds % 60
 
-        view?.updateTime(time: String(format: Constants.timeLabelFormat, hours, minutes, secs))
+        view?.didUpdateTime(time: String(format: Constants.timeLabelFormat, hours, minutes, secs))
     }
     
     // MARK: - Private functions
@@ -51,7 +51,7 @@ final class TimerPresenter {
             return
         }
 
-        let newAction = PostActionModel(name: action, project_id: projectID, time_end: timeEnd, time_start: timeStart)
+        let newAction = PostActionModel(name: action, projectID: projectID, timeEnd: timeEnd, timeStart: timeStart)
         interactor.postAction(action: newAction, completion: { _ in
             self.timeEnd = nil
             self.timeStart = nil
@@ -80,24 +80,24 @@ final class TimerPresenter {
 
 extension TimerPresenter: TimerViewOutput {
     
-    func didTapOpenActions() {
+    func openActions() {
         view?.present(module: assemblyFactory.actionsModuleAssembly().module().view)
     }
     
     func setProjects() {
-        interactor.getProjects { projects in
+        interactor.getProjects { [weak self] projects in
             var projectNames = [Project]()
             for i in 0..<projects.count {
                 projectNames.append(projects[i].name)
             }
-            self.view?.didGetProjects(projectNames: projectNames)
-            self.projects = projects
+            self?.view?.didGetProjects(projectNames: projectNames)
+            self?.projects = projects
         }
     }
     
-    func didStartTime() {
-        timeStart = Date().toString()
-        view?.updateTime(time: String(format: Constants.timeLabelFormat, 0, 0, 0))
+    func startTime() {
+        timeStart = Date().toString(isFinish: nil)
+        view?.didUpdateTime(time: String(format: Constants.timeLabelFormat, 0, 0, 0))
         timer = Timer.scheduledTimer(timeInterval: 1.0,
                                           target: self,
                                           selector: #selector(didUpdateTime),
@@ -105,8 +105,8 @@ extension TimerPresenter: TimerViewOutput {
                                           repeats: true)
     }
     
-    func didStopTime() {
-        timeEnd = Date().toString()
+    func stopTime() {
+        timeEnd = Date().toString(isFinish: nil)
         timer?.invalidate()
         seconds = 0
     }
