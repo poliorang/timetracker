@@ -96,7 +96,7 @@ extension TimerPresenter: TimerViewOutput {
     }
     
     func startTime() {
-        timeStart = Date().toString()
+        timeStart = Date().toString(isFinish: nil)
         view?.didUpdateTime(time: String(format: Constants.timeLabelFormat, 0, 0, 0))
         timer = Timer.scheduledTimer(timeInterval: 1.0,
                                           target: self,
@@ -106,7 +106,7 @@ extension TimerPresenter: TimerViewOutput {
     }
     
     func stopTime() {
-        timeEnd = Date().toString()
+        timeEnd = Date().toString(isFinish: nil)
         timer?.invalidate()
         seconds = 0
     }

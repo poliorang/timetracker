@@ -26,7 +26,7 @@ extension AnalyticsInteractor: AnalyticsInteractorInput {
             let requestType: GetRequestArgs = analyticsParams?.id == nil
                         ? .statistics
                         : .detailStatistics(analyticsParams!.id!)
-            print(analyticsParams)
+
             guard let data = await service.getDataFromServer(type: requestType, queryItem: analyticsParams) else {
                 print("Failed | get statistics")
                 completion([])

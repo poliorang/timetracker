@@ -25,8 +25,8 @@ final class ServiceImpl: Service {
         var urlComponents = URLComponents(string: url + type.request)!
         if let queryItem = queryItem {
             urlComponents.queryItems = [
-                URLQueryItem(name: "time_start", value: queryItem.startDate.toString()),
-                URLQueryItem(name: "time_end", value: queryItem.finishDate.toString())
+                URLQueryItem(name: "time_start", value: queryItem.startDate.toString(isFinish: false)),
+                URLQueryItem(name: "time_end", value: queryItem.finishDate.toString(isFinish: true))
             ]
         }
         
