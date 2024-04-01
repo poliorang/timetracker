@@ -133,11 +133,16 @@ final class GoalsTableViewCell: UITableViewCell {
         finishTimeLabel.textColor = Constants.secondatyFontColor
         finishTimeLabel.textAlignment = .right
         
-        if let percent = goal?.percent, percent > 0 {
-            progressView.setProgress(Float(percent / 100), animated: false)
-        }
         progressView.progressTintColor = .gray
         progressView.layer.borderColor = UIColor.gray.cgColor
         progressView.layer.borderWidth = 0.1
+        
+        if let percent = goal?.percent, percent >= 0 {
+            let correctPercent = Float(percent / 100)
+            progressView.setProgress(correctPercent, animated: false)
+            if correctPercent >= 1.0 {
+                progressView.progressTintColor = UIColor.customColors[3]
+            }
+        }
     }
 }
