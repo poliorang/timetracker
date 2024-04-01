@@ -55,7 +55,6 @@ extension CreateGoalInteractor: CreateGoalInteractorInput {
     
     func postGoal(goal: PostGoalModel, completion: @escaping (Int?) -> Void) {
         Task {
-            print(goal)
             guard let data = await service.postDataToServer(object: goal, type: .goal) else {
                 print("Failed | post goal")
                 completion(nil)

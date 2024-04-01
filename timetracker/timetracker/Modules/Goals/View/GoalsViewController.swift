@@ -23,6 +23,7 @@ class GoalsViewController: UIViewController {
     private var tableView: UITableView
     
     private lazy var transition = PanelTransition()
+    private var refreshControl: UIRefreshControl
     
     // MARK: - Init
     
@@ -34,6 +35,7 @@ class GoalsViewController: UIViewController {
         self.projectsTabControl = TabControl().autolayout()
         self.plusButton = UIButton().autolayout()
         self.tableView = UITableView().autolayout()
+        self.refreshControl = UIRefreshControl().autolayout()
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -103,10 +105,19 @@ class GoalsViewController: UIViewController {
         tableView.delegate = tableViewDataSource
         tableView.dataSource = tableViewDataSource
         tableView.separatorColor = .systemGray2
+        tableView.refreshControl = refreshControl
+                refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+
     }
     
     @objc private func plusButtonTapped() {
         output.openCreateGoals()
+    }
+    
+    @objc private func refreshData() {
+        if let projectName = projectsTabControl.selectedLabel?.text {
+            output.setGoalsForProject(projectName: projectName)
+        }
     }
 }
 
@@ -127,6 +138,7 @@ extension GoalsViewController: GoalsViewInput {
             tableView: tableView,
             delegate: self
         )
+        refreshControl.endRefreshing()
     }
     
     func present(module: UIViewController) {

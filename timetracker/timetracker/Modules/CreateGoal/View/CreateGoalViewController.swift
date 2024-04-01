@@ -26,13 +26,10 @@ class CreateGoalViewController: UIViewController {
     private var timeTabControl: TabControl
     private var startDateTextField: BasicTextField
     private var finishDateTextField: BasicTextField
+    
     private var toolbar: UIToolbar
     
-    private var keyboardOffset: CGFloat = 0 {
-        didSet {
-            print(keyboardOffset)
-        }
-    }
+    private var keyboardOffset: CGFloat = 0
     private var keyboardShifted: Bool = false
     
     private var contentBottomAnchorConstraint: NSLayoutConstraint?
@@ -49,6 +46,7 @@ class CreateGoalViewController: UIViewController {
         self.timeTabControl = TabControl().autolayout()
         self.toolbar = UIToolbar().autolayout()
         self.startDateTextField = BasicTextField().autolayout()
+        
         self.finishDateTextField = BasicTextField().autolayout()
         
         super.init(nibName: nil, bundle: nil)
@@ -66,6 +64,11 @@ class CreateGoalViewController: UIViewController {
         setUpAppearance()
         setupToolbar()
         addKeyboardObservers()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        projectsTabControl.contentOffset.x = 16
+        timeTabControl.contentOffset.x = 16
     }
     
     override func viewDidLayoutSubviews() {
