@@ -76,6 +76,10 @@
 		4A2F70BA2BB9B32300938F2E /* CreateGoalInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70B92BB9B32300938F2E /* CreateGoalInteractor.swift */; };
 		4A2F70BC2BB9B33600938F2E /* CreateGoalModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70BB2BB9B33600938F2E /* CreateGoalModuleAssembly.swift */; };
 		4A2F70BE2BBA085A00938F2E /* String+Seconds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70BD2BBA085A00938F2E /* String+Seconds.swift */; };
+		4A2F70C02BBB01D100938F2E /* PanelTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70BF2BBB01D100938F2E /* PanelTransition.swift */; };
+		4A2F70C32BBB035B00938F2E /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70C22BBB035B00938F2E /* DismissAnimation.swift */; };
+		4A2F70C52BBB037200938F2E /* PresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70C42BBB037200938F2E /* PresentAnimation.swift */; };
+		4A2F70C72BBB03AF00938F2E /* ShadowPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70C62BBB03AF00938F2E /* ShadowPresentationController.swift */; };
 		4A3A7BA22B94C76D004C60D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */; };
 		4A3A7BA42B94C76D004C60D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */; };
 		4A3A7BA62B94C76D004C60D2 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A7BA52B94C76D004C60D2 /* TimerViewController.swift */; };
@@ -156,6 +160,10 @@
 		4A2F70B92BB9B32300938F2E /* CreateGoalInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalInteractor.swift; sourceTree = "<group>"; };
 		4A2F70BB2BB9B33600938F2E /* CreateGoalModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalModuleAssembly.swift; sourceTree = "<group>"; };
 		4A2F70BD2BBA085A00938F2E /* String+Seconds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Seconds.swift"; sourceTree = "<group>"; };
+		4A2F70BF2BBB01D100938F2E /* PanelTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelTransition.swift; sourceTree = "<group>"; };
+		4A2F70C22BBB035B00938F2E /* DismissAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
+		4A2F70C42BBB037200938F2E /* PresentAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAnimation.swift; sourceTree = "<group>"; };
+		4A2F70C62BBB03AF00938F2E /* ShadowPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPresentationController.swift; sourceTree = "<group>"; };
 		4A3A7B9E2B94C76D004C60D2 /* timetracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3A7BA12B94C76D004C60D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A3A7BA32B94C76D004C60D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -319,6 +327,7 @@
 		4A2F6F032BA1010B00938F2E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4A2F70C12BBB034700938F2E /* BottomSheet */,
 				4A2F6F042BA1012300938F2E /* UIKit+AutoLayout.swift */,
 				4A2F6F462BAB135700938F2E /* UITextField+Alert.swift */,
 				4A2F6F392BA5D9C300938F2E /* String+Types.swift */,
@@ -543,6 +552,17 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
+		4A2F70C12BBB034700938F2E /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F70BF2BBB01D100938F2E /* PanelTransition.swift */,
+				4A2F70C22BBB035B00938F2E /* DismissAnimation.swift */,
+				4A2F70C42BBB037200938F2E /* PresentAnimation.swift */,
+				4A2F70C62BBB03AF00938F2E /* ShadowPresentationController.swift */,
+			);
+			path = BottomSheet;
+			sourceTree = "<group>";
+		};
 		4A3A7B952B94C76D004C60D2 = {
 			isa = PBXGroup;
 			children = (
@@ -722,14 +742,17 @@
 				4A2F70A52BB978AC00938F2E /* Goal.swift in Sources */,
 				4A2F6F312BA5D1E900938F2E /* TimerInteractorInput.swift in Sources */,
 				4A2F6EF72BA0F31C00938F2E /* GoalsPresenter.swift in Sources */,
+				4A2F70C72BBB03AF00938F2E /* ShadowPresentationController.swift in Sources */,
 				4A2F70992BB9759F00938F2E /* GoalsModuleInput.swift in Sources */,
 				4A2F70952BB9753300938F2E /* GoalsInteractorInput.swift in Sources */,
+				4A2F70C32BBB035B00938F2E /* DismissAnimation.swift in Sources */,
 				4A2F70A72BB9867B00938F2E /* Int+Seconds.swift in Sources */,
 				4A2F70812BB8025700938F2E /* UIColor+Generator.swift in Sources */,
 				4A2F6F432BA9A51800938F2E /* Project.swift in Sources */,
 				4A3A7BA22B94C76D004C60D2 /* AppDelegate.swift in Sources */,
 				4A2F70BC2BB9B33600938F2E /* CreateGoalModuleAssembly.swift in Sources */,
 				4A2F6F192BA35D7900938F2E /* ActionsPresenter.swift in Sources */,
+				4A2F70C02BBB01D100938F2E /* PanelTransition.swift in Sources */,
 				4A2F6F4D2BAC505800938F2E /* Requests.swift in Sources */,
 				4A2F6EDF2BA0EDE100938F2E /* TimerModuleAssembly.swift in Sources */,
 				4A2F6F202BA35EB300938F2E /* ActionsTableViewDataSourceImpl.swift in Sources */,
@@ -781,6 +804,7 @@
 				4A2F6EF02BA0F20000938F2E /* TimerViewInput.swift in Sources */,
 				4A2F707B2BB6D46B00938F2E /* AnalyticsInteractorOutput.swift in Sources */,
 				4A2F70A32BB976AD00938F2E /* GoalsTableViewDataSourceImpl.swift in Sources */,
+				4A2F70C52BBB037200938F2E /* PresentAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

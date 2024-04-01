@@ -22,6 +22,8 @@ class GoalsViewController: UIViewController {
     private var plusButton: UIButton
     private var tableView: UITableView
     
+    private lazy var transition = PanelTransition()
+    
     // MARK: - Init
     
     init(output: GoalsViewOutput,
@@ -129,6 +131,8 @@ extension GoalsViewController: GoalsViewInput {
     
     func present(module: UIViewController) {
         guard let childViewController = module as? CreateGoalViewController else { return }
+        childViewController.modalPresentationStyle = .custom
+        childViewController.transitioningDelegate = transition
         present(childViewController, animated: true)
     }
 }

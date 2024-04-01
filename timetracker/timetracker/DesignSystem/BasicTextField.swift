@@ -78,7 +78,7 @@ final class BasicTextField: UITextField {
 extension BasicTextField: UITextFieldDelegate {
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if !isDate {
+        if !isDate || ((textField.text?.isEmpty) != nil) {
             return true
         }
         
