@@ -50,7 +50,6 @@ class GoalsViewController: UIViewController {
         super.viewDidLoad()
         setUpUI()
         setUpAppearance()
-        output.setProjects()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -135,8 +134,7 @@ extension GoalsViewController: GoalsViewInput {
     func configureTableView(data: [GoalModel]) {
         tableViewDataSource.update(
             with: data,
-            tableView: tableView,
-            delegate: self
+            tableView: tableView
         )
         refreshControl.endRefreshing()
     }
@@ -147,8 +145,4 @@ extension GoalsViewController: GoalsViewInput {
         childViewController.transitioningDelegate = transition
         present(childViewController, animated: true)
     }
-}
-
-extension GoalsViewController: GoalsTableViewDataSourceDelegate {
-    
 }

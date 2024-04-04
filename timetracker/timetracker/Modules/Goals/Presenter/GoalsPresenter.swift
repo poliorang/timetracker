@@ -58,9 +58,7 @@ extension GoalsPresenter: GoalsViewOutput {
     func openCreateGoals() {
         view?.present(module: assemblyFactory.createGoalModuleAssembly().module().view)
     }
-}
-
-extension GoalsPresenter: GoalsInteractorOutput {
+    
     func setGoalsForProject(projectName: String) {
         if let project = projects.first(where: { $0.name == projectName } ) {
             id = project.id
@@ -68,8 +66,3 @@ extension GoalsPresenter: GoalsInteractorOutput {
         }
     }
 }
-
-extension GoalsPresenter: GoalsModuleInput {
-
-}
-

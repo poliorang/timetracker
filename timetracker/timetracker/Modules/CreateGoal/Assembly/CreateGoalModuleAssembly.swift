@@ -9,7 +9,7 @@ import UIKit
 
 final class CreateGoalModuleAssembly {
 
-    func module() -> (view: UIViewController, presenter: CreateGoalPresenter) {
+    func module() -> (view: UIViewController, presenter: AnyObject) {
         let interactor = CreateGoalInteractor()
         
         let presenter = CreateGoalPresenter(interactor: interactor)
@@ -17,7 +17,6 @@ final class CreateGoalModuleAssembly {
         let controller = CreateGoalViewController(output: presenter)
         
         presenter.view = controller
-        interactor.output = presenter
 
         return (
             view: controller,

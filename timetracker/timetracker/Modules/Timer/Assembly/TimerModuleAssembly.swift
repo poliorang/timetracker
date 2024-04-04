@@ -17,7 +17,6 @@ final class TimerModuleAssembly {
         let controller = TimerViewController(output: presenter)
 
         presenter.view = controller
-        interactor.output = presenter
 
         return (
             view: controller,

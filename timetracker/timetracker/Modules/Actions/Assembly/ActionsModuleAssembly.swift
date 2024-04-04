@@ -9,7 +9,7 @@ import UIKit
 
 final class ActionsModuleAssembly {
 
-    func module() -> (view: UIViewController, presenter: ActionsPresenter) {
+    func module() -> (view: UIViewController, presenter: AnyObject) {
         let interactor = ActionsInteractor()
         
         let presenter = ActionsPresenter(interactor: interactor)

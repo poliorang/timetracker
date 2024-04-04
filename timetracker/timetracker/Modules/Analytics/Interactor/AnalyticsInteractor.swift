@@ -15,8 +15,6 @@ struct AnalyticsParams {
 
 final class AnalyticsInteractor {
 
-    weak var output: AnalyticsInteractorOutput?
-    
     private let service = ServiceImpl.shared
 }
 

@@ -9,8 +9,6 @@ import UIKit
 
 protocol GoalsTableViewDataSource: UITableViewDataSource, UITableViewDelegate {
     func update(with goals: [GoalModel],
-                tableView: UITableView,
-                delegate: GoalsTableViewDataSourceDelegate
+                tableView: UITableView
     )
 }
-

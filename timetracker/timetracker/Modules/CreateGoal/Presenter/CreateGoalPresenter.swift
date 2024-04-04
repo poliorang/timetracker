@@ -14,17 +14,11 @@ final class CreateGoalPresenter {
     
     // MARK: - Private properties
     
-    private enum Constants {
-        
-    }
-    
     private let interactor: CreateGoalInteractorInput
     private let assemblyFactory = AssemblyFactoryImpl.shared
 
     private var projects = [ProjectModel]()
     private var newGoal: PostGoalModel?
-//    private var goals = [GoalModel]()
-
     // MARK: - Init
 
     init(interactor: CreateGoalInteractorInput) {
@@ -33,15 +27,6 @@ final class CreateGoalPresenter {
     }
     
     // MARK: - Private functions
-
-//    private func getGoals(id: Int) {
-//        interactor.getGoals(id: id) { [weak self] data in
-//            self?.goals = data
-//            DispatchQueue.main.async {
-//                self?.view?.configureTableView(data: data)
-//            }
-//        }
-//    }
     
     private func getProjectID(project: Project, completion: @escaping (Int?) -> Void) {
         // if the project already exists
@@ -143,12 +128,4 @@ extension CreateGoalPresenter: CreateGoalViewOutput {
         
         return true
     }
-}
-
-extension CreateGoalPresenter: CreateGoalInteractorOutput {
-//    func setGoalsForProject(projectName: String) {
-//        if let project = projects.first(where: { $0.name == projectName } ) {
-//            getGoals(id: project.id)
-//        }
-//    }
 }

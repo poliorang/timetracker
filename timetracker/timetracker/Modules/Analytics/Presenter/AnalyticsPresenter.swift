@@ -102,9 +102,6 @@ extension AnalyticsPresenter: AnalyticsViewOutput {
     }
 }
 
-extension AnalyticsPresenter: AnalyticsInteractorOutput {
-    
-}
 
 extension AnalyticsPresenter: AnalyticsModuleInput {
     func configureProjectName(_ name: String) {

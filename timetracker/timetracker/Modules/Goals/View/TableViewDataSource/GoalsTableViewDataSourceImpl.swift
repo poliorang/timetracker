@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol GoalsTableViewDataSourceDelegate: AnyObject {
-//    func openDetailAnalytics(id: Int, projectName: String)
-}
-
-
 final class GoalsTableViewDataSourceImpl: NSObject {
     
     // MARK: - Private properties
@@ -23,7 +18,6 @@ final class GoalsTableViewDataSourceImpl: NSObject {
 
     private var goals: [GoalModel]?
     private weak var tableView: UITableView?
-    private weak var delegate: GoalsTableViewDataSourceDelegate?
 
     // MARK: - Init
     
@@ -35,12 +29,10 @@ final class GoalsTableViewDataSourceImpl: NSObject {
 extension GoalsTableViewDataSourceImpl: GoalsTableViewDataSource {
 
     func update(with goals: [GoalModel],
-                tableView: UITableView,
-                delegate: GoalsTableViewDataSourceDelegate
+                tableView: UITableView
     ) {
         self.goals = goals
         self.tableView = tableView
-        self.delegate = delegate
 
         DispatchQueue.main.async {
             tableView.reloadData()
@@ -60,8 +52,7 @@ extension GoalsTableViewDataSourceImpl: GoalsTableViewDataSource {
 
         let goal = goals[indexPath.row]
         cell.configure(
-            goal: goal,
-            delegate: delegate
+            goal: goal
         )
         cell.setUpUI()
         cell.separatorInset = UIEdgeInsets.zero
@@ -76,11 +67,5 @@ extension GoalsTableViewDataSourceImpl: GoalsTableViewDataSource {
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constants.cellHeight
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard let analytic = analytics?[indexPath.row],
-//              let id = analytic.id else { return }
-//        delegate?.openDetailAnalytics(id: id, projectName: analytic.name)
     }
 }

@@ -9,8 +9,6 @@ import Foundation
 
 final class TimerInteractor {
 
-    weak var output: TimerInteractorOutput?
-    
     private let service = ServiceImpl.shared
 }
 

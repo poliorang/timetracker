@@ -17,8 +17,6 @@ final class GoalsTableViewCell: UITableViewCell {
         static let secondatyFontColor: UIColor = .systemGray
     }
     
-    private weak var delegate: GoalsTableViewDataSourceDelegate?
-
     private var goal: GoalModel?
     
     private var descriptionLabel: UILabel
@@ -51,11 +49,9 @@ final class GoalsTableViewCell: UITableViewCell {
     }
     
     public func configure(
-        goal: GoalModel,
-        delegate: GoalsTableViewDataSourceDelegate?
+        goal: GoalModel
     ) {
         self.goal = goal
-        self.delegate = delegate
     }
 
     override func prepareForReuse() {

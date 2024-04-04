@@ -9,8 +9,6 @@ import Foundation
 
 final class GoalsInteractor {
 
-    weak var output: GoalsInteractorOutput?
-    
     private let service = ServiceImpl.shared
 }
 
@@ -53,4 +51,3 @@ extension GoalsInteractor: GoalsInteractorInput {
         }
     }
 }
-

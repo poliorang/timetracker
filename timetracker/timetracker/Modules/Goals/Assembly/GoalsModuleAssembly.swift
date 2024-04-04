@@ -9,7 +9,7 @@ import UIKit
 
 final class GoalsModuleAssembly {
 
-    func module() -> (view: UIViewController, presenter: GoalsPresenter) {
+    func module() -> (view: UIViewController, presenter: AnyObject) {
         let interactor = GoalsInteractor()
         
         let presenter = GoalsPresenter(interactor: interactor)
@@ -22,7 +22,6 @@ final class GoalsModuleAssembly {
         )
         
         presenter.view = controller
-        interactor.output = presenter
 
         return (
             view: controller,
