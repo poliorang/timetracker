@@ -9,26 +9,23 @@ import UIKit
 
 final class GoalsModuleAssembly {
 
-    func module() -> (view: UIViewController, moduleInput: AnyObject) {
-//        let interactor = OmgModel()
+    func module() -> (view: UIViewController, presenter: AnyObject) {
+        let interactor = GoalsInteractor()
         
-        let presenter = GoalsPresenter()//(model: model)
+        let presenter = GoalsPresenter(interactor: interactor)
         
-//        let collectionViewDataSource = OmgCollectionViewDataSourceImpl()
-        
-//        let tableViewDataSource = OmgTableViewDataSourceImpl(collectionViewDataSource: collectionViewDataSource)
+        let tableViewDataSource = GoalsTableViewDataSourceImpl()
         
         let controller = GoalsViewController(
-//            output: presenter,
-//            tableViewDataSource: tableViewDataSource
+            output: presenter,
+            tableViewDataSource: tableViewDataSource
         )
-
-//        presenter.view = controller
-//        model.output = presenter
+        
+        presenter.view = controller
 
         return (
             view: controller,
-            moduleInput: presenter
+            presenter: presenter
         )
     }
 }

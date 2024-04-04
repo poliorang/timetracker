@@ -30,11 +30,37 @@ extension Date {
     }
 }
 
+extension Date {
+    func isAfter(_ date: Date) -> Bool {
+        return self.compare(date) == .orderedDescending
+    }
+    
+    func isBefore(_ date: Date) -> Bool {
+        return self.compare(date) == .orderedAscending
+    }
+    
+    func isEqualTo(_ date: Date) -> Bool {
+        return self.compare(date) == .orderedSame
+    }
+}
+
 
 extension String {
     func toDate() -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy"
         return dateFormatter.date(from: self)
+    }
+    
+    func toStringDate() -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        if let date = dateFormatter.date(from: self) {
+            dateFormatter.dateFormat = "dd.MM.yy"
+            return dateFormatter.string(from: date)
+        }
+        
+        return nil
     }
 }

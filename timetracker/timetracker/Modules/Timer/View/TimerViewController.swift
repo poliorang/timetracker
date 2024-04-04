@@ -229,6 +229,8 @@ class TimerViewController: UIViewController {
               let projectName = projectTextField.text?.trimmedAndNormalized else {
             return
         }
+        
+        output.stopTime()
         screenState = .empty
         playButton.setBackgroundImage(Constants.startImage, for: .normal)
         
@@ -251,7 +253,6 @@ class TimerViewController: UIViewController {
         actionsButton.alpha = 0
         
         timerLabel.text = ""
-        output.stopTime()
         output.сreateActionWithProject(action: actionName, project: projectName)
     }
 

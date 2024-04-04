@@ -16,6 +16,7 @@ enum GetRequestArgs {
     case project
     case statistics
     case detailStatistics(Int)
+    case goals(Int)
     
     var request: String {
         switch self {
@@ -27,6 +28,8 @@ enum GetRequestArgs {
             return "me/projects/stat"
         case .detailStatistics(let id):
             return "me/projects/\(id)/stat"
+        case .goals(let id):
+            return "me/projects/\(id)/goals"
         }
 
     }
@@ -35,6 +38,7 @@ enum GetRequestArgs {
 enum PostRequestArgs {
     case action
     case project
+    case goal
     
     var request: String {
         switch self {
@@ -42,6 +46,8 @@ enum PostRequestArgs {
             return "entries/create"
         case .project:
             return "projects/create"
+        case .goal:
+            return "goals/create"
         }
     }
 }

@@ -22,8 +22,7 @@ final class AnalyticsModuleAssembly {
         )
         
         presenter.view = controller
-        interactor.output = presenter
-
+        
         return (
             view: controller,
             presenter: presenter

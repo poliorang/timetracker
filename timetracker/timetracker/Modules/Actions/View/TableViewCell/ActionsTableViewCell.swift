@@ -82,6 +82,3 @@ final class ActionsTableViewCell: UITableViewCell {
         projectLabel.sizeToFit()
     }
 }
-
-
-

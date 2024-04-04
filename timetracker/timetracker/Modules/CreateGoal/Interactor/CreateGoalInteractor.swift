@@ -1,18 +1,18 @@
 //
-//  TimerInteractor.swift
+//  CreateGoalInteractor.swift
 //  timetracker
 //
-//  Created by Polina Egorova on 16.03.2024.
+//  Created by Polina Egorova on 31.03.2024.
 //
 
 import Foundation
 
-final class TimerInteractor {
-
+final class CreateGoalInteractor {
     private let service = ServiceImpl.shared
 }
 
-extension TimerInteractor: TimerInteractorInput {
+extension CreateGoalInteractor: CreateGoalInteractorInput {
+
     func getProjects(completion: @escaping ([ProjectModel]) -> Void) {
         Task {
             guard let data = await service.getDataFromServer(type: .project, queryItem: nil) else {
@@ -32,30 +32,10 @@ extension TimerInteractor: TimerInteractorInput {
         }
     }
     
-    func getActions(completion: @escaping ([ActionModel]) -> Void) {
+    func postGoal(goal: PostGoalModel, completion: @escaping (Int?) -> Void) {
         Task {
-            guard let data = await service.getDataFromServer(type: .action, queryItem: nil) else {
-                print("Failed | get actions")
-                completion([])
-                return
-            }
-            
-            var actions = [ActionModel]()
-            do {
-                actions = try JSONDecoder().decode([ActionModel].self, from: data)
-            } catch {
-                print("Failed | decode actions")
-            }
-            
-            completion(actions)
-        }
-    }
-
-    func postAction(action: PostActionModel,
-                    completion: @escaping (Int?) -> Void) {
-        Task {
-            guard let data = await service.postDataToServer(object: action, type: .action) else {
-                print("Failed | post action")
+            guard let data = await service.postDataToServer(object: goal, type: .goal) else {
+                print("Failed | post goal")
                 completion(nil)
                 return
             }

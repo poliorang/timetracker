@@ -17,13 +17,8 @@ final class AnalyticsPresenter {
     }
     
     // MARK: - Private properties
-    
-    private enum Constants {
-        
-    }
-    
+
     private var analytics: AnalyticsProjectsModel?
-    
     private let interactor: AnalyticsInteractorInput
     private let assemblyFactory = AssemblyFactoryImpl.shared
     
@@ -107,9 +102,6 @@ extension AnalyticsPresenter: AnalyticsViewOutput {
     }
 }
 
-extension AnalyticsPresenter: AnalyticsInteractorOutput {
-    
-}
 
 extension AnalyticsPresenter: AnalyticsModuleInput {
     func configureProjectName(_ name: String) {

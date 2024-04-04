@@ -118,7 +118,3 @@ extension TimerPresenter: TimerViewOutput {
         })
     }
 }
-
-extension TimerPresenter: TimerInteractorOutput {
-    
-}

@@ -105,7 +105,7 @@ final class AnalyticsTableViewCell: UITableViewCell {
         percentDurationLabel.font = UIFont.boldSystemFont(ofSize: Constants.smallFontSize)
         percentDurationLabel.textColor = .systemGray2
         
-        timeDurationLabel.text = String.timeString(fromSeconds: analytic?.durationInSeconds)
+        timeDurationLabel.text = analytic?.durationInSeconds?.clockFaceStringFromSeconds()
         timeDurationLabel.font = UIFont.boldSystemFont(ofSize: Constants.smallFontSize)
         timeDurationLabel.textColor = .systemGray2
     }

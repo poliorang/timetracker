@@ -8,4 +8,3 @@
 protocol ActionsViewOutput: AnyObject {
     func setActions()
 }
-
